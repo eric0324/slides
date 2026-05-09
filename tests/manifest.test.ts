@@ -28,4 +28,15 @@ describe('buildManifest', () => {
       /must match folder name/
     )
   })
+
+  test('draft: true is excluded from manifest', async () => {
+    const manifest = await buildManifest('tests/fixtures/with-draft')
+    expect(manifest.map((t) => t.slug)).toEqual(['published'])
+  })
+
+  test('manifest is sorted by date desc when sorted by build-manifest CLI', async () => {
+    const manifest = await buildManifest('tests/fixtures/sorting')
+    manifest.sort((a, b) => b.date.localeCompare(a.date))
+    expect(manifest.map((t) => t.slug)).toEqual(['new', 'old'])
+  })
 })
