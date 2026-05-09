@@ -12,6 +12,7 @@ web/dist
 web/data/talks.json
 web/types/talks.generated.d.ts
 dist/
+slides/*/out/
 
 # IDE
 .vscode/

@@ -14,7 +14,7 @@ describe('buildManifest', () => {
         event: 'MOPCON 2025',
         date: '2025-08-23',
         links: { video: 'https://youtube.com/watch?v=xxx' },
-        url: '/talks/vue3-composition/',
+        url: '/vue3-composition/',
       },
     ])
   })
