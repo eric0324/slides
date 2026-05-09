@@ -1,0 +1,109 @@
+<section class="slide" data-screen-label="10 Configure">
+  <div class="chrome">
+    <div><span class="dot"></span>SECTION 02 · Telegram Bot</div>
+    <div class="right">02 / 03</div>
+  </div>
+
+  <div style="margin-top: 60px;">
+    <div class="eyebrow">STEP 02 · CLAUDE CODE</div>
+    <h2 class="title" style="margin-top:16px;">把 token 跟 <span class="purple">access</span> 設定好。</h2>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: 1fr 1.4fr; gap:64px; margin-top:24px; padding-right:60px;">
+
+    <!-- Terminal mockup (right) -->
+    <div style="display:flex; flex-direction:column; gap:24px; order:2;">
+
+      <div style="
+        background:#0e0c09;
+        border-radius:10px;
+        border:1px solid var(--line);
+        overflow:hidden;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      ">
+        <div style="
+          background:#1c1916; padding:12px 16px;
+          display:flex; align-items:center;
+          border-bottom: 1px solid var(--line); position:relative;
+        ">
+          <div style="display:flex; gap:8px;">
+            <div style="width:13px; height:13px; border-radius:50%; background:#ff5f57;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#febc2e;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#28c840;"></div>
+          </div>
+          <div style="
+            position:absolute; left:50%; transform:translateX(-50%);
+            font-family: var(--mono); font-size:13px; color:var(--ink-4);
+            letter-spacing:0.05em;
+          ">~/vault — claude</div>
+        </div>
+
+        <pre style="
+          margin:0; padding:28px 32px;
+          font-family: var(--mono); font-size:18px; line-height:1.65;
+          color: var(--ink-2); white-space: pre; background:#0e0c09;
+        "><span class="dim">~/vault $</span> claude
+<span class="dim">&gt;</span> /telegram:configure
+  <span class="c">paste your bot token:</span>
+  <span class="lime">▸</span> <span class="s">7891234567:AAH-xyZ...vbn</span>
+  <span class="lime">✓</span> token saved
+
+<span class="c"># 把自己加進 allowlist</span>
+<span class="dim">&gt;</span> /telegram:access add <span class="s">12345678</span>
+  <span class="lime">✓</span> user 12345678 allowed
+</pre>
+      </div>
+
+    </div>
+
+    <!-- Explanation (left) -->
+    <div style="display:flex; flex-direction:column; gap:36px; align-self:center; order:1;">
+
+      <div>
+        <div class="eyebrow">依序執行</div>
+        <div style="display:flex; flex-direction:column; gap:18px; margin-top:18px;">
+
+          <div style="display:flex; gap:18px; align-items:baseline;">
+            <span class="mono purple" style="font-size:18px; letter-spacing:0.1em; min-width:36px;">01</span>
+            <div style="font-size:22px; color:var(--ink-2); line-height:1.5;">
+              在 vault 啟動 <span class="mono lime">$ claude</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; align-items:baseline;">
+            <span class="mono purple" style="font-size:18px; letter-spacing:0.1em; min-width:36px;">02</span>
+            <div style="font-size:22px; color:var(--ink-2); line-height:1.5;">
+              session 內跑 <span class="mono lime">/telegram:configure</span>
+              <span class="dim" style="font-size:20px;">— 貼 token</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:18px; align-items:baseline;">
+            <span class="mono purple" style="font-size:18px; letter-spacing:0.1em; min-width:36px;">03</span>
+            <div style="font-size:22px; color:var(--ink-2); line-height:1.5;">
+              再跑 <span class="mono lime">/telegram:access add &lt;id&gt;</span>
+              <span class="dim" style="font-size:20px;">— 加 allowlist</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <div>
+        <div class="eyebrow muted">數字 ID 怎麼拿</div>
+        <div style="font-size:24px; margin-top:14px; line-height:1.55; color:var(--ink-2);">
+          在 Telegram 打開<span class="lime">你的 bot</span>，<br/>
+          傳一句話就能看到自己的 ID。
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand">第二大腦 / Section 02</div>
+    <div>12</div>
+  </div>
+</section>
