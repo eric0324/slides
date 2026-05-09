@@ -16,3 +16,6 @@ dist/
 # IDE
 .vscode/
 .idea/
+
+# Brainstorming / superpowers artifacts
+.superpowers/
