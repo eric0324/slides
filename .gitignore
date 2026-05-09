@@ -6,7 +6,7 @@ bun.lock
 # Nuxt
 web/.nuxt/
 web/.output/
-web/dist/
+web/dist
 
 # Generated
 web/data/talks.json
