@@ -18,4 +18,14 @@ describe('buildManifest', () => {
       },
     ])
   })
+
+  test('missing required field (tags) → throws with field name', async () => {
+    await expect(buildManifest('tests/fixtures/missing-tags')).rejects.toThrow(/tags/)
+  })
+
+  test('slug does not match folder name → throws', async () => {
+    await expect(buildManifest('tests/fixtures/slug-mismatch')).rejects.toThrow(
+      /must match folder name/
+    )
+  })
 })
