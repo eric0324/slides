@@ -1,0 +1,18 @@
+node_modules/
+bun.lock
+.DS_Store
+.env*
+
+# Nuxt
+web/.nuxt/
+web/.output/
+web/dist/
+
+# Generated
+web/data/talks.json
+web/types/talks.generated.d.ts
+dist/
+
+# IDE
+.vscode/
+.idea/
