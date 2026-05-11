@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Home } from "lucide-react";
-import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 
 export function S06_QA() {
   return (
@@ -31,22 +30,6 @@ export function S06_QA() {
           <p style={{ fontSize: 20, color: "var(--muted)", fontWeight: 400 }}>
             有任何問題都可以問
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          <Link href="/">
-            <div
-              className="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer"
-              style={{ background: "var(--subtle)", border: "1px solid var(--border)", color: "var(--muted)", fontSize: 13 }}
-            >
-              <Home size={14} />
-              回首頁
-            </div>
-          </Link>
         </motion.div>
       </div>
     </div>
