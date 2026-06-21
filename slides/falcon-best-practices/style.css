@@ -1,0 +1,146 @@
+/* ============================================================
+   Falcon 最佳實踐 — Slidev deck styles
+   Aesthetic: clean light / product-doc, indigo accent
+   Ported from the original Next.js/React deck (globals.css +
+   per-component inline styles) and adapted for Slidev's
+   980x552 canvas (.slidev-layout wrapper).
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #f8f8f6;
+  --surface: #ffffff;
+  --border: #e8e8e4;
+  --accent: #4f46e5;
+  --accent2: #7c3aed;
+  --text: #111111;
+  --muted: #888880;
+  --subtle: #f0f0ec;
+  --green: #059669;
+  --red: #dc2626;
+  --yellow: #d97706;
+
+  --sans: "Inter", "Noto Sans TC", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --slidev-theme-primary: var(--accent);
+}
+
+/* ----- slide canvas ----- */
+.slidev-layout {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  padding: 32px 56px;
+}
+
+.slidev-layout.cover,
+.slidev-layout.center,
+.slidev-layout.section {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ----- typography ----- */
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: var(--text);
+  font-family: var(--sans);
+  letter-spacing: -0.02em;
+}
+.slidev-layout h1 { font-weight: 900; line-height: 1.05; }
+.slidev-layout h2 { font-weight: 800; line-height: 1.1; }
+.slidev-layout h3 { font-weight: 700; }
+.slidev-layout p,
+.slidev-layout li { color: var(--text); line-height: 1.6; }
+.slidev-layout a { color: var(--accent); }
+.slidev-layout strong { color: var(--text); font-weight: 700; }
+
+/* ----- helpers ----- */
+.mono   { font-family: var(--mono); }
+.accent { color: var(--accent); }
+.green  { color: var(--green); }
+.red    { color: var(--red); }
+.muted  { color: var(--muted); }
+
+.accent-bar {
+  width: 36px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.bar-green { background: var(--green); }
+.bar-red   { background: var(--red); }
+
+/* ----- tag pill ----- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--subtle);
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+
+/* ----- card ----- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+/* ----- icon tile ----- */
+.icon-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 18px;
+}
+
+/* ----- good / bad palettes ----- */
+.good-tile { background: #f0fdf4; border: 1px solid #bbf7d0; }
+.bad-tile  { background: #fef2f2; border: 1px solid #fecaca; }
+
+.callout-good { border-left: 4px solid var(--green); }
+.callout-bad  { border-left: 4px solid var(--red); }
+
+.label-good { color: var(--green); font-weight: 700; letter-spacing: 0.08em; font-size: 13px; }
+.label-bad  { color: var(--red);  font-weight: 700; letter-spacing: 0.08em; font-size: 13px; }
+
+.pill-from { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+.pill-to   { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+
+/* progress dots */
+.dots { display: flex; gap: 6px; align-items: center; }
+.dots i {
+  height: 4px; width: 6px;
+  border-radius: 2px;
+  background: var(--border);
+  display: block;
+}
+.dots i.on { width: 20px; }
+.dots.green i.on { background: var(--green); }
+.dots.red i.on   { background: var(--red); }
+
+/* code spans */
+.slidev-layout :not(pre) > code {
+  background: var(--subtle);
+  color: var(--accent);
+  font-family: var(--mono);
+  padding: 0.08em 0.4em;
+  border-radius: 4px;
+}
+
+/* tables */
+.slidev-layout th { background: var(--subtle); color: var(--text); }
+.slidev-layout td { color: var(--text); }
