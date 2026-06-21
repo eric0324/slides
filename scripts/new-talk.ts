@@ -132,7 +132,6 @@ mdc: true
 colorSchema: light
 
 talk:
-  slug: ${slug}
   description: ${description}
   tags: [${tags.join(', ')}]
   event: ${event}

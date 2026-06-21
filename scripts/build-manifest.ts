@@ -1,12 +1,14 @@
-import { readdir, readFile, access } from 'node:fs/promises'
-import { join } from 'node:path'
+import { readdir, readFile } from 'node:fs/promises'
+import { join, relative, sep } from 'node:path'
 import matter from 'gray-matter'
 import yaml from 'js-yaml'
 import { z } from 'zod'
 
 // Metadata lives in the `talk:` block of each deck's slides.md headmatter.
+// The slug (URL path) is derived from the deck's folder path under slides/,
+// e.g. "2026/falcon-knowledge-base" or "2026/moe-camp/wordpress-workshop/day1".
+// It is NOT set in frontmatter — move the folder to change the URL.
 const TalkMetaSchema = z.object({
-  slug: z.string().regex(/^[a-z0-9-]+$/),
   description: z.string().min(1),
   tags: z.array(z.string()).min(1),
   event: z.string().min(1),
@@ -34,15 +36,6 @@ export interface ManifestEntry {
   unlisted?: boolean
 }
 
-async function exists(path: string): Promise<boolean> {
-  try {
-    await access(path)
-    return true
-  } catch {
-    return false
-  }
-}
-
 const yamlEngine = (s: string) =>
   yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as Record<string, unknown>
 
@@ -61,36 +54,45 @@ async function parseDeck(slug: string, slidesPath: string): Promise<ManifestEntr
         .join('\n')}`,
     )
   }
-  if (parsed.data.slug !== slug) {
-    throw new Error(`${slidesPath}: slug "${parsed.data.slug}" must match folder name "${slug}"`)
-  }
   if (parsed.data.draft) return null
 
   const title = typeof data.title === 'string' && data.title.length > 0 ? data.title : slug
   return {
-    slug: parsed.data.slug,
+    slug,
     title,
     description: parsed.data.description,
     tags: parsed.data.tags,
     event: parsed.data.event,
     date: parsed.data.date,
     links: parsed.data.links,
-    url: `/${parsed.data.slug}/`,
+    url: `/${slug}/`,
     ...(parsed.data.unlisted ? { unlisted: true } : {}),
   }
 }
 
+// Recursively find every deck (a folder containing slides.md). The deck's
+// slug is its path relative to slidesDir, e.g. "chatbot" or
+// "2026/moe-camp/wordpress-workshop/day1". A folder with slides.md is a deck
+// and is not descended into further.
+async function findDeckDirs(dir: string): Promise<string[]> {
+  const ents = await readdir(dir, { withFileTypes: true })
+  if (ents.some((e) => e.isFile() && e.name === 'slides.md')) return [dir]
+  const found: string[] = []
+  for (const e of ents) {
+    if (e.isDirectory() && e.name !== 'node_modules' && e.name !== 'assets') {
+      found.push(...(await findDeckDirs(join(dir, e.name))))
+    }
+  }
+  return found
+}
+
 export async function buildManifest(slidesDir: string): Promise<ManifestEntry[]> {
-  const dirs = await readdir(slidesDir, { withFileTypes: true })
+  const deckDirs = await findDeckDirs(slidesDir)
   const entries: ManifestEntry[] = []
 
-  for (const dirent of dirs) {
-    if (!dirent.isDirectory()) continue
-    const slug = dirent.name
-    const slidesPath = join(slidesDir, slug, 'slides.md')
-    if (!(await exists(slidesPath))) continue
-
-    const entry = await parseDeck(slug, slidesPath)
+  for (const deckDir of deckDirs) {
+    const slug = relative(slidesDir, deckDir).split(sep).join('/')
+    const entry = await parseDeck(slug, join(deckDir, 'slides.md'))
     if (entry) entries.push(entry)
   }
 

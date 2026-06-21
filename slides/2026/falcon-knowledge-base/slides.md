@@ -8,7 +8,6 @@ mdc: true
 colorSchema: light
 
 talk:
-  slug: falcon-knowledge-base
   title: Falcon 知識庫功能指南
   description: Falcon 平台知識庫的核心功能、建立流程、知識點格式、審核機制與成員管理。
   tags: [SAT]

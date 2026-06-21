@@ -9,7 +9,6 @@ mdc: true
 colorSchema: light
 
 talk:
-  slug: wordpress-workshop-day1
   description: 教育部公民營計劃 WordPress 工作坊 Day 1：認識 WordPress、開啟伺服器、購買與設定網域、SSL/CDN，並完成第一篇文章與頁面。
   tags: [WordPress, workshop, 教育部]
   event: 教育部公民營計劃

@@ -8,7 +8,6 @@ mdc: true
 colorSchema: light
 
 talk:
-  slug: chatbot-second-brain
   title: 把聊天室變成第二大腦
   description: 把聊天室變成第二大腦的入口：用 chatbot 把片段想法、知識、待辦自動歸檔進 Obsidian vault。
   tags: [chatbot, meetup]

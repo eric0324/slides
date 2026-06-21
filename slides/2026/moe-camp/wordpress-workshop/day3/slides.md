@@ -9,7 +9,6 @@ mdc: true
 colorSchema: light
 
 talk:
-  slug: wordpress-workshop-day3
   description: 教育部公民營計劃 WordPress 工作坊 Day 3：持續經營、網站獲利，以及 AI 延伸應用——提示詞、內容經營、生圖素材、AI 客製化 WordPress 外掛實作。
   tags: [WordPress, workshop, 教育部, AI]
   event: 教育部公民營計劃
