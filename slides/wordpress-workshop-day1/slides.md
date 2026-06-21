@@ -14,6 +14,7 @@ talk:
   tags: [WordPress, workshop, 教育部]
   event: 教育部公民營計劃
   date: 2026-08-03
+  unlisted: true
 ---
 
 # WordPress 工作坊

@@ -12,6 +12,8 @@ const TalkMetaSchema = z.object({
   event: z.string().min(1),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   draft: z.boolean().optional().default(false),
+  // unlisted: 照常建置／部署，但不出現在首頁清單（talks.json）
+  unlisted: z.boolean().optional().default(false),
   links: z
     .object({
       video: z.string().url().optional(),
@@ -40,6 +42,7 @@ export interface ManifestEntry {
   date: string
   links?: { video?: string; repo?: string }
   url: string
+  unlisted?: boolean
 }
 
 async function exists(path: string): Promise<boolean> {
@@ -144,6 +147,7 @@ export async function buildManifest(slidesDir: string): Promise<ManifestEntry[]>
       date: parsed.meta.date,
       links: parsed.meta.links,
       url: `/${parsed.meta.slug}/`,
+      ...(parsed.meta.unlisted ? { unlisted: true } : {}),
     })
   }
 
@@ -152,8 +156,13 @@ export async function buildManifest(slidesDir: string): Promise<ManifestEntry[]>
 
 if (import.meta.main) {
   const manifest = await buildManifest('slides')
-  manifest.sort((a, b) => b.date.localeCompare(a.date))
+  const listed = manifest.filter((t) => !t.unlisted)
+  listed.sort((a, b) => b.date.localeCompare(a.date))
   await mkdir('web/data', { recursive: true })
-  await writeFile('web/data/talks.json', JSON.stringify(manifest, null, 2) + '\n')
-  console.log(`✓ ${manifest.length} talk(s) written to web/data/talks.json`)
+  await writeFile('web/data/talks.json', JSON.stringify(listed, null, 2) + '\n')
+  const hidden = manifest.length - listed.length
+  console.log(
+    `✓ ${listed.length} talk(s) written to web/data/talks.json` +
+      (hidden ? ` (${hidden} unlisted, hidden from homepage)` : '')
+  )
 }

@@ -68,10 +68,15 @@ async function main() {
 
   console.log('2/6 building manifest...')
   const manifest = await buildManifest('slides')
-  manifest.sort((a, b) => b.date.localeCompare(a.date))
+  // 首頁清單排除 unlisted；但 manifest（含 unlisted）仍用於建置／部署
+  const listed = manifest.filter((t) => !t.unlisted)
+  listed.sort((a, b) => b.date.localeCompare(a.date))
   await mkdir('web/data', { recursive: true })
-  await writeFile('web/data/talks.json', JSON.stringify(manifest, null, 2) + '\n')
-  console.log(`     ✓ ${manifest.length} talk(s)`)
+  await writeFile('web/data/talks.json', JSON.stringify(listed, null, 2) + '\n')
+  const hidden = manifest.length - listed.length
+  console.log(
+    `     ✓ ${listed.length} listed` + (hidden ? ` + ${hidden} unlisted` : '')
+  )
 
   console.log('3/6 building Nuxt...')
   await run('bunx', ['nuxi', 'generate', 'web'])
