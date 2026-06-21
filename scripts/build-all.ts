@@ -1,9 +1,9 @@
 #!/usr/bin/env bun
-import { rm, mkdir, writeFile, cp, access, readFile } from 'node:fs/promises'
+import { rm, mkdir, writeFile, access } from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { spawn } from 'node:child_process'
-import yaml from 'js-yaml'
 import { buildManifest } from './build-manifest'
+import { renderIndex } from './build-index'
 
 const DIST = 'dist'
 
@@ -26,8 +26,10 @@ function run(cmd: string, args: string[], cwd?: string): Promise<void> {
   })
 }
 
-async function buildSlidevDeck(slug: string) {
-  await run('bunx', [
+// Every deck is a Slidev deck (slides/<slug>/slides.md), built as an SPA
+// under the sub-path /<slug>/.
+function buildDeck(slug: string): Promise<void> {
+  return run('bunx', [
     'slidev',
     'build',
     join('slides', slug, 'slides.md'),
@@ -38,68 +40,29 @@ async function buildSlidevDeck(slug: string) {
   ])
 }
 
-async function buildCustomDeck(slug: string) {
-  const deckDir = join('slides', slug)
-  const dest = resolve(DIST, slug)
-
-  const talkYml = yaml.safeLoad(
-    await readFile(join(deckDir, 'talk.yml'), 'utf-8'),
-    { schema: yaml.JSON_SCHEMA },
-  ) as { build?: { command: string; out: string } }
-
-  if (talkYml.build) {
-    // Run deck-specific build command, then copy its output dir to dist
-    const [cmd, ...args] = talkYml.build.command.split(/\s+/)
-    await run(cmd, args, deckDir)
-    await cp(resolve(deckDir, talkYml.build.out), dest, { recursive: true })
-  } else {
-    // No build step → copy deck dir as-is, excluding the talk.yml itself
-    await cp(deckDir, dest, {
-      recursive: true,
-      filter: (src) => !src.endsWith('/talk.yml') && !src.endsWith('\\talk.yml'),
-    })
-  }
-}
-
 async function main() {
-  console.log('1/6 cleaning dist/...')
+  console.log('1/4 cleaning dist/...')
   await rm(DIST, { recursive: true, force: true })
   await mkdir(DIST, { recursive: true })
 
-  console.log('2/6 building manifest...')
+  console.log('2/4 reading decks...')
   const manifest = await buildManifest('slides')
-  // 首頁清單排除 unlisted；但 manifest（含 unlisted）仍用於建置／部署
   const listed = manifest.filter((t) => !t.unlisted)
-  listed.sort((a, b) => b.date.localeCompare(a.date))
-  await mkdir('web/data', { recursive: true })
-  await writeFile('web/data/talks.json', JSON.stringify(listed, null, 2) + '\n')
   const hidden = manifest.length - listed.length
-  console.log(
-    `     ✓ ${listed.length} listed` + (hidden ? ` + ${hidden} unlisted` : '')
-  )
+  console.log(`     ✓ ${listed.length} listed` + (hidden ? ` + ${hidden} unlisted` : ''))
 
-  console.log('3/6 building Nuxt...')
-  await run('bunx', ['nuxi', 'generate', 'web'])
-
-  console.log('4/6 copying Nuxt output to dist/...')
-  await cp('web/.output/public', DIST, { recursive: true })
-
-  console.log('5/6 building decks (parallel)...')
-  const builds = manifest.map(async (t) => {
-    const isSlidev = await exists(join('slides', t.slug, 'slides.md'))
-    if (isSlidev) {
-      await buildSlidevDeck(t.slug)
-      return `slidev:${t.slug}`
-    } else {
-      await buildCustomDeck(t.slug)
-      return `custom:${t.slug}`
-    }
-  })
-  const results = await Promise.all(builds)
-  console.log(`     ✓ ${results.join(', ')}`)
-
-  console.log('6/6 writing .nojekyll...')
+  console.log('3/4 generating homepage...')
+  await writeFile(join(DIST, 'index.html'), renderIndex(listed))
+  if (await exists('CNAME')) {
+    await writeFile(join(DIST, 'CNAME'), (await Bun.file('CNAME').text()).trim() + '\n')
+  }
   await writeFile(join(DIST, '.nojekyll'), '')
+
+  console.log('4/4 building decks (parallel)...')
+  const results = await Promise.all(
+    manifest.map((t) => buildDeck(t.slug).then(() => t.slug)),
+  )
+  console.log(`     ✓ ${results.join(', ')}`)
 
   console.log('✓ build complete → dist/')
 }

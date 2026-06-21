@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 import { intro, outro, text, isCancel, cancel, log } from '@clack/prompts'
-import { mkdir, readFile, writeFile, access } from 'node:fs/promises'
+import { mkdir, writeFile, access } from 'node:fs/promises'
 import { join } from 'node:path'
 
 function slugify(input: string): string {
@@ -121,14 +121,47 @@ if (isCancel(description)) {
   process.exit(0)
 }
 
-const template = await readFile('templates/slides.template.md', 'utf-8')
-const filled = template
-  .replace(/__TITLE__/g, titleArg)
-  .replace(/__SLUG__/g, slug)
-  .replace(/__DESCRIPTION__/g, description)
-  .replace(/__TAGS__/g, tags.join(', '))
-  .replace(/__EVENT__/g, event)
-  .replace(/__DATE__/g, date)
+const filled = `---
+theme: default
+title: ${titleArg}
+info: |
+  ${description}
+class: text-center
+transition: slide-left
+mdc: true
+colorSchema: light
+
+talk:
+  slug: ${slug}
+  description: ${description}
+  tags: [${tags.join(', ')}]
+  event: ${event}
+  date: ${date}
+---
+
+# ${titleArg}
+
+${event} · ${date}
+
+<!--
+Slidev 語法： https://sli.dev/guide/syntax
+\`---\` 分頁；per-slide 選項放在 \`---\` 後的 frontmatter（layout: center / two-cols ...）。
+-->
+
+---
+
+## 第二張投影片
+
+\`---\` 用來分頁。
+
+---
+layout: center
+---
+
+## 結語
+
+謝謝聆聽
+`
 
 const dir = join('slides', slug)
 await mkdir(dir, { recursive: true })

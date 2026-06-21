@@ -352,7 +352,7 @@ layout: two-cols
 
 先大致規劃網站的「頁面結構」：首頁，以及從首頁連出去的內容頁
 
-![網站頁面結構示意](./site-structure.png){class="block mx-auto mt-4 rounded-lg shadow w-[55%]"}
+![網站頁面結構示意](./assets/site-structure.png){class="block mx-auto mt-4 rounded-lg shadow w-[55%]"}
 
 <!--
 不用一次想齊全，先抓首頁加 3-5 個主要頁面即可，後面隨時能增刪。
@@ -371,12 +371,12 @@ layout: two-cols
 
 <div class="flex items-center justify-center gap-6 mt-4">
   <figure class="text-center m-0">
-    <img src="./houses-ip.png" class="h-28 mx-auto" />
+    <img src="./assets/houses-ip.png" class="h-28 mx-auto" />
     <figcaption class="text-sm text-gray-400 mt-1">難記的 IP 位址</figcaption>
   </figure>
   <div class="text-3xl text-gray-400">→</div>
   <figure class="text-center m-0">
-    <img src="./houses-name.png" class="h-28 mx-auto" />
+    <img src="./assets/houses-name.png" class="h-28 mx-auto" />
     <figcaption class="text-sm text-gray-400 mt-1">好記的網域名稱</figcaption>
   </figure>
 </div>
@@ -597,7 +597,7 @@ layoutClass: gap-6
 
 ::right::
 
-![Cloudways 註冊頁面](./cloudways-signup.png){class="rounded-lg shadow max-h-[78vh] mx-auto"}
+![Cloudways 註冊頁面](./assets/cloudways-signup.png){class="rounded-lg shadow max-h-[78vh] mx-auto"}
 
 <!--
 常見卡關：
@@ -638,7 +638,7 @@ layoutClass: gap-6
 
 ::right::
 
-![Cloudways 建立伺服器設定畫面](./create-server.png){class="rounded-lg shadow w-full mt-12"}
+![Cloudways 建立伺服器設定畫面](./assets/create-server.png){class="rounded-lg shadow w-full mt-12"}
 
 <!--
 建置要等 5-10 分鐘，正好利用這段時間預告下一節「網域」的概念，不要乾等。
@@ -862,11 +862,11 @@ DNS 生效後，在瀏覽器輸入**網域**就會看到 WordPress 首頁
 
 <div class="flex justify-center gap-6 mt-3">
   <figure class="m-0 w-[46%] text-center">
-    <img src="./cdn-without.png" class="rounded shadow w-full" />
+    <img src="./assets/cdn-without.png" class="rounded shadow w-full" />
     <figcaption class="text-sm text-gray-400 mt-1">沒有 CDN：都連到單一伺服器</figcaption>
   </figure>
   <figure class="m-0 w-[46%] text-center">
-    <img src="./cdn-with.png" class="rounded shadow w-full" />
+    <img src="./assets/cdn-with.png" class="rounded shadow w-full" />
     <figcaption class="text-sm text-gray-400 mt-1">有 CDN：就近節點取得</figcaption>
   </figure>
 </div>
@@ -1047,7 +1047,7 @@ SMTP 是「正式去郵局交寄」，對方才收得到。
 3. **解壓縮**，會得到一個 `wordpress` 資料夾
 4. 先別關，待會要把裡面的檔案上傳
 
-![tw.wordpress.org 首頁](./wordpress-org-tw.png){class="block mx-auto mt-3 rounded-lg shadow w-[80%]"}
+![tw.wordpress.org 首頁](./assets/wordpress-org-tw.png){class="block mx-auto mt-3 rounded-lg shadow w-[80%]"}
 
 <!--
 提醒一定要從官方 wordpress.org 下載，不要從來路不明的網站，避免被植入後門。
@@ -1065,7 +1065,7 @@ SMTP 是「正式去郵局交寄」，對方才收得到。
    - **主機（Host）**、**使用者（Username）**、**密碼（Password）**、**連接埠**（通常 21 或 22）
 3. 點「**快速連線**」，左半邊是你的電腦、右半邊是主機
 
-![FileZilla 連線欄位與左右雙視窗](./filezilla.png){class="block mx-auto mt-3 rounded-lg shadow w-[72%]"}
+![FileZilla 連線欄位與左右雙視窗](./assets/filezilla.png){class="block mx-auto mt-3 rounded-lg shadow w-[72%]"}
 
 <!--
 常見卡關：
@@ -1242,7 +1242,7 @@ layoutClass: gap-6
 
 ::right::
 
-![WordPress 登入頁](./wp-login.png){class="rounded-lg shadow max-h-[70vh] mx-auto"}
+![WordPress 登入頁](./assets/wp-login.png){class="rounded-lg shadow max-h-[70vh] mx-auto"}
 
 <!--
 常見卡關：
@@ -1562,7 +1562,7 @@ layoutClass: gap-6
 
 ::right::
 
-![外觀 → 佈景主題](./appearance-menu.png){class="rounded-lg shadow w-[70%] mt-12"}
+![外觀 → 佈景主題](./assets/appearance-menu.png){class="rounded-lg shadow w-[70%] mt-12"}
 
 <!--
 給學員幾分鐘自由挑主題、安裝啟用，現場會很熱鬧。

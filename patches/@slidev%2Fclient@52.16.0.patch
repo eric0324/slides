@@ -1,0 +1,59 @@
+diff --git a/composables/useNav.ts b/composables/useNav.ts
+index 8df13fe5c5dd3601eeb540f0ff13b9f48fa58726..066282d5605c7457fa24b7db5a97a32ec551eb2b 100644
+--- a/composables/useNav.ts
++++ b/composables/useNav.ts
+@@ -192,7 +192,10 @@ export function useNavBase(
+     clicks = clamp(clicks, clicksStart, meta?.__clicksContext?.total ?? CLICKS_MAX)
+     if (force || pageChanged || clicksChanged) {
+       await router?.push({
+-        path: getSlidePath(no, isPresenter.value, router.currentRoute.value.name === 'export'),
++        // Push a base-relative path; vue-router prepends BASE_URL itself.
++        // getSlidePath() already includes BASE_URL, so strip it to avoid
++        // doubling the base on sub-path deployments (/deck/deck/2).
++        path: getSlidePath(no, isPresenter.value, router.currentRoute.value.name === 'export').replace(import.meta.env.BASE_URL, '/'),
+         query: {
+           ...router.currentRoute.value.query,
+           clicks: clicks === 0 ? undefined : clicks.toString(),
+@@ -204,13 +207,13 @@ export function useNavBase(
+ 
+   function enterPresenter() {
+     router?.push({
+-      path: getSlidePath(currentSlideNo.value, true),
++      path: getSlidePath(currentSlideNo.value, true).replace(import.meta.env.BASE_URL, '/'),
+       query: { ...router.currentRoute.value.query },
+     })
+   }
+   function exitPresenter() {
+     router?.push({
+-      path: getSlidePath(currentSlideNo.value, false),
++      path: getSlidePath(currentSlideNo.value, false).replace(import.meta.env.BASE_URL, '/'),
+       query: { ...router.currentRoute.value.query },
+     })
+   }
+diff --git a/composables/useTocTree.ts b/composables/useTocTree.ts
+index fcc969073a66b25bf7bb60eb058c835c3596fad5..ce775b3e42fc1c23ccd8eddb568f09b29f31c397 100644
+--- a/composables/useTocTree.ts
++++ b/composables/useTocTree.ts
+@@ -14,7 +14,7 @@ function addToTree(tree: TocItem[], route: SlideRoute, level = 1) {
+       children: [],
+       level,
+       titleLevel,
+-      path: getSlidePath(route.meta.slide?.frontmatter?.routeAlias ?? route.no, false),
++      path: getSlidePath(route.meta.slide?.frontmatter?.routeAlias ?? route.no, false).replace(import.meta.env.BASE_URL, '/'),
+       hideInToc: Boolean(route.meta?.slide?.frontmatter?.hideInToc),
+       title: route.meta?.slide?.title,
+     })
+diff --git a/setup/root.ts b/setup/root.ts
+index 7d1aa98aa00a89d8518f87d5a599304d59307e44..8a6dd6cc5f0df16a4f73651ba3bee8d9bbbc4df2 100644
+--- a/setup/root.ts
++++ b/setup/root.ts
+@@ -102,7 +102,8 @@ export default function setupRoot() {
+     // if (state.lastUpdate?.type === 'presenter') {
+     hmrSkipTransition.value = false
+     router.replace({
+-      path: getSlidePath(state.page, isPresenter.value),
++      // strip BASE_URL — vue-router prepends it; avoids /deck/deck/2 doubling
++      path: getSlidePath(state.page, isPresenter.value).replace(import.meta.env.BASE_URL, '/'),
+       query: {
+         ...router.currentRoute.value.query,
+         clicks: state.clicks || 0,
