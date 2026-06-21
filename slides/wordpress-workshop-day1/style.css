@@ -1,0 +1,56 @@
+/* 教育部 WordPress 工作坊 — 自訂視覺（WordPress 品牌藍） */
+:root {
+  --wp-blue: #0073aa;
+  --wp-blue-deep: #0d324d;
+  --wp-cyan: #00a0d2;
+}
+
+/* 標題顏色 */
+.slidev-layout h1 {
+  font-weight: 700;
+  color: var(--wp-blue-deep);
+}
+
+/* 封面：深藍漸層 */
+.slidev-layout.cover {
+  background: linear-gradient(135deg, var(--wp-blue-deep) 0%, var(--wp-blue) 60%, var(--wp-cyan) 100%) !important;
+  color: #fff !important;
+}
+.slidev-layout.cover h1 { color: #fff; }
+.slidev-layout.cover h2 { color: rgba(255, 255, 255, 0.95); }
+.slidev-layout.cover p { color: rgba(255, 255, 255, 0.85); }
+
+/* 章節分隔頁：深藍漸層 + 標題底線 */
+.slidev-layout.section {
+  background: linear-gradient(135deg, var(--wp-blue-deep) 0%, var(--wp-blue) 75%) !important;
+  color: #fff !important;
+}
+.slidev-layout.section h1 { color: #fff; }
+
+/* 表格 */
+.slidev-layout th {
+  background: #e8f4fa;
+  color: var(--wp-blue-deep);
+  border-color: #cfe6f2 !important;
+}
+.slidev-layout td { border-color: #e3eef5 !important; }
+.slidev-layout tbody tr:nth-child(even) td { background: #f6fbfd; }
+
+/* 行內程式碼 */
+.slidev-layout :not(pre) > code {
+  background: #e8f4fa;
+  color: var(--wp-blue);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+}
+
+/* 引用區塊 */
+.slidev-layout blockquote {
+  border-left: 4px solid var(--wp-blue);
+  background: #f0f8fc;
+  border-radius: 0 8px 8px 0;
+  padding: 0.5em 1em;
+}
+
+/* 連結 */
+.slidev-layout a { color: var(--wp-blue); }
