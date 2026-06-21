@@ -12,27 +12,10 @@ bun run preview                                 # 本機預覽整站（等同線
 bun run new-talk "標題"                          # 產生新 deck 樣板
 ```
 
-## 結構
+## deck metadata
 
-每個 deck = 一個含 `slides.md` 的資料夾，依「年份／活動」分層放在 `slides/`：
-
-```
-slides/
-└── 2026/
-    ├── falcon-knowledge-base/slides.md
-    ├── chatbot-second-brain/slides.md
-    └── moe-camp/wordpress-workshop/
-        ├── day1/slides.md
-        ├── day2/slides.md
-        └── day3/slides.md
-```
-
-- **網址 = 資料夾路徑**：`slides/2026/foo/bar/slides.md` → `/2026/foo/bar/`。
-  搬資料夾就等於改網址，frontmatter 不用寫 slug。
-- deck 內可放 `style.css`（Slidev 自動載入）、`global-bottom.vue`、`assets/` 圖檔。
-
-### deck metadata
-
+每個 deck = 一個含 `slides.md` 的資料夾，放在 `slides/` 下（可自由用子資料夾分層）；
+**網址 = 資料夾相對 `slides/` 的路徑**（搬資料夾即改網址，frontmatter 不用寫 slug）。
 每個 `slides.md` 的 headmatter 要有 `talk:` 區塊：
 
 ```yaml
