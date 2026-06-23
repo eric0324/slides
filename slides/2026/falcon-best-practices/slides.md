@@ -6,6 +6,7 @@ class: text-center
 transition: slide-left
 mdc: true
 colorSchema: light
+routerMode: hash
 
 talk:
   title: Falcon 最佳實踐

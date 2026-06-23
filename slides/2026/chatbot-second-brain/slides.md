@@ -6,6 +6,7 @@ class: text-center
 transition: slide-left
 mdc: true
 colorSchema: light
+routerMode: hash
 
 talk:
   title: 把聊天室變成第二大腦

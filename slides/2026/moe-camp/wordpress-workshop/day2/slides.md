@@ -7,6 +7,7 @@ class: text-center
 transition: slide-left
 mdc: true
 colorSchema: light
+routerMode: hash
 
 talk:
   description: 教育部公民營計劃 WordPress 工作坊 Day 2：佈景主題、外掛生態系，從流量分析、表單、SEO、資安、備份到 WooCommerce 與 Sensei LMS。
