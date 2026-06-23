@@ -3,10 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev:slide": "bun scripts/dev-slide.ts",
+    "dev": "bun scripts/dev-slide.ts",
     "build": "bun scripts/build-all.ts",
-    "preview": "bunx http-server dist -p 4321 -o",
-    "dev": "bun run build && bun run preview",
+    "preview": "bun run build && bunx http-server dist -p 4321 -o",
     "new-talk": "bun scripts/new-talk.ts"
   },
   "dependencies": {

@@ -6,11 +6,14 @@
 
 ```bash
 bun install
-bun run dev:slide 2026/falcon-knowledge-base   # 開單一 deck（熱更新）
-bun run build                                   # build 首頁 + 全部 deck → dist/
-bun run preview                                 # 本機預覽整站（等同線上）
-bun run new-talk "標題"                          # 產生新 deck 樣板
+bun run dev 2026/falcon-knowledge-base   # 編輯單一 deck（Slidev dev server，HMR 熱更新）
+bun run build                            # build 首頁 + 全部 deck → dist/
+bun run preview                          # build + 本機預覽整站（等同線上）
+bun run new-talk "標題"                   # 產生新 deck 樣板
 ```
+
+> 編輯時用 `bun run dev <slug>`（即時熱更新、改壞會顯示錯誤而非 404）；
+> `preview` 是靜態整站檢視，會先 build 再 serve。
 
 ## deck metadata
 
