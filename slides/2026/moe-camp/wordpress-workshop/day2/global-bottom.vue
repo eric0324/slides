@@ -1,5 +1,5 @@
 <script setup>
-import Shared from "../shared/global-bottom.vue"
+import Shared from '../shared/global-bottom.vue'
 </script>
 <template>
   <Shared />
