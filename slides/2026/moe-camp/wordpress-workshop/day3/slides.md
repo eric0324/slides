@@ -1,8 +1,8 @@
 ---
 theme: default
-title: WordPress 三日工作坊 Day 3：持續經營與 AI 加值
+title: WordPress 工作坊 Day 3
 info: |
-  教育部公民營計劃・WordPress 三日工作坊 Day 3。網站持續經營與獲利，加上 AI 延伸：提示詞入門、AI 內容經營、AI 生圖，到用 AI 客製化 WordPress 外掛。
+  教育部公民營計劃・WordPress 工作坊 Day 3。
 class: text-center
 transition: slide-left
 mdc: true
@@ -13,17 +13,19 @@ talk:
   description: 教育部公民營計劃 WordPress 工作坊 Day 3：持續經營、網站獲利，以及 AI 延伸應用——提示詞、內容經營、生圖素材、AI 客製化 WordPress 外掛實作。
   tags: [WordPress, workshop, 教育部, AI]
   event: 教育部公民營計劃
-  date: 2026-07-03
+  date: 2026-08-05
   unlisted: true
 ---
 
-# WordPress 三日工作坊
+# WordPress 工作坊
 
-## Day 3：持續經營與 AI 加值
+## Day 3
 
 教育部公民營計劃
 
-講師：Eric Wu｜2026 年 7 月（日期以課程通知為準）
+講師：Eric Wu
+
+2026 年 8 月 3 日
 
 <!--
 開場提醒：請學員先打開自己的網站後台登入，今天下午會大量實作。
