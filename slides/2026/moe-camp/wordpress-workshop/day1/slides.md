@@ -1639,10 +1639,6 @@ layoutClass: gap-6
 3. 選好後點 **安裝**，再點 **啟用**（裝多個只有「啟用」的那個生效）
 4. 回前台，再用**手機**打開，確認電腦版與手機版都 OK
 
-<div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900 rounded-lg text-sm">
-完成的學員：試試「外觀 → 自訂」改網站標題顏色或首頁設定。
-</div>
-
 ::right::
 
 ![外觀 → 佈景主題](./assets/appearance-menu.png){class="rounded-lg shadow w-[70%] mt-12"}
@@ -1836,7 +1832,7 @@ layout: center
 class: text-center
 ---
 
-# Q&A
+# Q & A
 
 還有什麼問題嗎？現在就問 
 
