@@ -103,7 +103,7 @@ layout: section
 - 它做的事：根據前面的文字，**預測下一個字最可能是什麼**
 - 「老師早安，今天要考＿＿」→ 它會接「試」
 - 把這個能力放大億萬倍，就能寫文章、翻譯、寫程式
-- 這類模型叫 **LLM (大型語言模型) **，名字記不住沒關係
+- 這類模型叫 **LLM (大型語言模型)**，名字記不住沒關係
 
 > 重點：它是「**很會接話的助手**」，不是「全知的百科全書」
 
@@ -1239,12 +1239,16 @@ layout: section
 
 # 內容經營小結
 
-- 網站荒廢的解藥：**固定節奏** ＋ 解決讀者問題的內容
-- 寫法：標題層級、短段落、條列、白話
-- 視覺：每篇都有圖，版權用 **Openverse** 安全解
-- SEO：長尾關鍵字 ＋ 內部連結，持續累積
-- 獲利四模式：廣告／聯盟／販售／業配，**內容先行**
-
+<div class="max-w-2xl mx-auto mt-6 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden text-left">
+  <div class="px-5 py-2 text-sm font-bold text-white" style="background:#0073aa">本段重點</div>
+  <div class="px-6 py-4 space-y-2.5 text-[#0d324d] leading-relaxed">
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>網站荒廢的解藥：<b>固定節奏</b> ＋ 解決讀者問題的內容</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>寫法：標題層級、短段落、條列、白話</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>視覺：每篇都有圖，版權用 <b>Openverse</b> 安全解</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>SEO：長尾關鍵字 ＋ 內部連結，持續累積</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>獲利四模式：廣告／聯盟／販售／業配，<b>內容先行</b></span></div>
+  </div>
+</div>
 
 <!--
 休息前快速確認：每位學員心中有一個文章題目了嗎？下午 AI 實作會直接用。

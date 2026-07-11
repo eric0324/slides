@@ -88,6 +88,7 @@ layout: center
 - 換上**專業佈景主題**的版面
 - 用**外掛**
 - 用 **AI 做出想要的功能**
+- 一張**碰一下就打開網站的 NFC 小卡**
 
 </div>
 
@@ -146,10 +147,10 @@ layout: center
 - **先看再做**：每個步驟我會先示範一次，再請大家操作
 - **鄰座互助**：做完的老師幫忙看一下旁邊的進度
 - **投影片會提供**：不用抄筆記，專心跟上操作
+- **隨時舉手打斷我**：遇到任何問題，隨時打斷我！
 
 <v-click>
 
- **教學現場提示**：這套「示範 → 操作 → 互助」的節奏，也很適合帶回自己的課堂運用。
 
 </v-click>
 
@@ -188,7 +189,7 @@ layout: section
 
 # 1-1 WordPress 是什麼？
 
-**WordPress 是一套「內容管理系統」 (CMS, Content Management System) **
+WordPress 是一套「內容管理系統」 (CMS, Content Management System)
 
 <v-clicks>
 
@@ -249,7 +250,7 @@ layout: section
 # WordPress 有多普及？
 
 - 2003 年誕生，發展超過 20 年
-- **全球 41.5% 的網站**都用 WordPress；在所有 CMS 中**市佔近 6 成 (約 59%) **
+- **全球 41.5% 的網站**都用 WordPress；在所有 CMS 中 市佔近 6 成 (約 59%) 
 - 從個人部落格、學校網站，到新聞媒體、企業官網都在用
 - 因為夠普及，**遇到問題幾乎都有答案**
 
@@ -300,7 +301,7 @@ layout: two-cols
 
 # WordPress.org
 
-**自架版 (本課程使用) **
+自架版 (本課程使用)
 
 - 軟體**開源免費**
 - 自己準備伺服器與網域
@@ -311,7 +312,7 @@ layout: two-cols
 
 # WordPress.com
 
-**託管版 (商業服務) **
+託管版 (商業服務)
 
 - 由 Automattic 公司營運
 - 免費方案限制多 (廣告、不能裝外掛)
@@ -446,11 +447,14 @@ class: text-center
 
 # 第 01 堂小結
 
-WordPress = 全球最多人用的開源建站系統
-
-動手前先想清楚：這個網站要做什麼、為它取一個好網域名稱
-
-接下來，捲起袖子開始啟動你的網站！
+<div class="max-w-2xl mx-auto mt-8 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden text-left">
+  <div class="px-5 py-2 text-sm font-bold text-white" style="background:#0073aa">本堂重點</div>
+  <div class="px-6 py-5 space-y-3 text-[#0d324d] leading-relaxed">
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span><b>WordPress</b> 是全球最多人用的開源建站系統，自己的網站自己作主</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>動手前先想清楚：這個網站<b>要做什麼</b>、取一個好<b>網域名稱</b></span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>接下來，捲起袖子開始<b>啟動你的網站</b></span></div>
+  </div>
+</div>
 
 <!--
 第 01 堂以觀念與規劃為主。確認每位學員都想好網站用途與網域名稱方向，再進入第 02 堂實作。
@@ -545,14 +549,9 @@ layout: section
 | 型態 | 概念 | 適合 |
 |------|------|------|
 | **虛擬主機** | 跟很多人合租一間房 | 預算極低、流量小 |
-| **雲端主機 (VPS) ** | 自己租一間套房 | 彈性大，但要自己管系統 |
-| **託管式雲端主機** | 租套房＋有管家 |  我們的選擇 |
+| **雲端主機 (VPS)** | 自己租一間套房 | 彈性大，但要自己管系統 |
+| **託管式雲端主機** | 租套房 + 有管家 | 新手友善、不用自己顧系統 |
 
-<v-click>
-
-**Cloudways = 託管式**：主機在雲端大廠，系統更新、安全性、WordPress 安裝都有人幫你顧。
-
-</v-click>
 
 <!--
 不用深入技術細節，重點是讓學員理解「為什麼不選最便宜的」：
@@ -782,12 +781,33 @@ layoutClass: gap-6
 
 ---
 
+# DNS 紀錄的幾種類型
+
+同一本「電話簿」裡，不同紀錄各有用途：
+
+| 類型 | 白話比喻 | 用途 |
+|------|---------|------|
+| **A** | 具體的街道地址 | 網域 → 伺服器 IP (IPv4) |
+| **AAAA** | 更精細的 GPS 座標 | 網域 → IPv6 位址 |
+| **CNAME** | 「北車」這種暱稱 | 一個名字指向另一個名字 (別名) |
+| **MX** | 建築物旁的郵箱 | 指定收信的郵件伺服器 |
+| **TXT** | 一張「週末再送貨」的便條 | 放驗證或設定用的文字 |
+
+> 今天只會用到 **A 紀錄**，把網域指到主機 IP，其他先認得就好
+
+<!--
+比喻對應：A＝門牌街道 (指到 IPv4)、AAAA＝更長更精細的 GPS (IPv6)、CNAME＝「北車」是台北車站的暱稱 (別名指向真正的名字)、MX＝郵箱 (決定信寄到哪)、TXT＝便條紙 (常用於網域驗證、SPF 防偽造寄件)。
+學員只要記住今天要設的是 A 紀錄，其他四種認得名字、知道大概用途即可，未來遇到 (例如驗證網域、設定 email) 再回來查。
+-->
+
+---
+
 # 步驟一：在 Cloudways 設定網域
 
 
 
 1. 進入 Cloudways 的**應用程式**頁面
-2. 找到**網域管理 (Domain Management) **的設定區
+2. 找到**網域管理** (Domain Management) 的設定區
 3. 輸入你剛買的網域，設為主要網域並儲存
 
 <!--
@@ -825,7 +845,7 @@ layoutClass: gap-6
 
 <v-click>
 
- **這就是為什麼今天用講師開好的子網域**：DNS 生效要等，現場乾等太浪費時間。
+ **這就是為什麼今天用開好的子網域**：DNS 生效要等，現場乾等太浪費時間。
 
 </v-click>
 
@@ -838,15 +858,13 @@ layoutClass: gap-6
 layout: center
 ---
 
-# 示範成果：門牌掛上了
+# 門牌掛上了
 
 DNS 生效後，在瀏覽器輸入**網域**就會看到 WordPress 首頁
 
 <div class="text-left max-w-md mx-auto mt-6">
 
  **網域 → 伺服器，門牌掛好了！**
-
- 但此時瀏覽器可能顯示「不安全」因為還沒設定 SSL，下一節就來處理。
 
 </div>
 
@@ -917,7 +935,7 @@ DNS 生效後，在瀏覽器輸入**網域**就會看到 WordPress 首頁
 
 1. 前往 Cloudflare 官網註冊 (Email ＋ 密碼)
 2. 點選**新增網站**，輸入你的網域
-3. 方案選擇 **Free (免費) ** 即可
+3. 方案選擇 **Free (免費)** 即可
 4. Cloudflare 會自動掃描你現有的 DNS 紀錄，確認 A 紀錄有被帶進來
 
 
@@ -935,7 +953,7 @@ DNS 生效後，在瀏覽器輸入**網域**就會看到 WordPress 首頁
 
 
 1. Cloudflare 會給你**兩個名稱伺服器位址** (類似 `xxx.ns.cloudflare.com`)
-2. 回到 Gandi → 你的網域 → **名稱伺服器 (Nameservers) **設定
+2. 回到 Gandi → 你的網域 → **名稱伺服器** (Nameservers) 設定
 3. 從 Gandi 預設改為**外部名稱伺服器**，貼上 Cloudflare 給的兩個位址
 4. 儲存
 
@@ -950,7 +968,7 @@ DNS 生效後，在瀏覽器輸入**網域**就會看到 WordPress 首頁
 
 # 步驟 3：等待 Cloudflare 接管完成
 
-- 回到 Cloudflare 控制台，等待網站狀態變成**有效 (Active) **
+- 回到 Cloudflare 控制台，等待網站狀態變成**有效 (Active)**
 - 可以點「重新檢查」按鈕加速確認
 - 等待期間，我們先把 SSL 模式設定好 (下一步)
 
@@ -969,7 +987,7 @@ DNS 生效後，在瀏覽器輸入**網域**就會看到 WordPress 首頁
 
 
 1. 進入你的網站 → **SSL/TLS** 設定區
-2. 加密模式選擇 **Full (完整) **
+2. 加密模式選擇 **Full (完整)**
 3. 為什麼是 Full？訪客到 Cloudflare、Cloudflare 到伺服器**全程加密**
 
 <!--
@@ -983,7 +1001,7 @@ DNS 生效後，在瀏覽器輸入**網域**就會看到 WordPress 首頁
 layout: center
 ---
 
-# 示範成果：正式規格的網站
+# 正式規格的網站
 
 用 `https://網域` 打開，看到  **鎖頭** = 一個「正式規格」的網站
 
@@ -1005,8 +1023,6 @@ layout: center
 
 # 2-6 設定 SMTP：讓網站會寄信
 
-<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#64748b">示範</span> 
-
 ## 為什麼網站需要寄信？
 
 - **忘記密碼**：重設密碼信寄不出去，就進不了後台
@@ -1015,21 +1031,43 @@ layout: center
 
 <v-click>
 
-伺服器**預設不會寄信** → 我們透過 **SMTP** 借專業郵件服務的手來寄。
+伺服器**預設不會寄信** → 改走 **SMTP** 這個「寄信的標準協定」，把信交給**專業郵件服務**（例如 Resend）代寄。
 
 </v-click>
 
 <!--
-這是示範。SMTP 全名不用背，比喻：網站自己寄信像「沒貼郵票亂投遞」，會被當垃圾信；
-SMTP 是「正式去郵局交寄」，對方才收得到。
+這是示範。要講清楚：SMTP 是「寄信的通訊協定」(一套標準流程)，不是某個服務；真正幫你送信的是郵件服務 (如 Resend)。
+比喻：網站自己寄信像沒貼郵票亂投遞，會被當垃圾信；改用郵件服務、依 SMTP 規矩交寄，就像正式去郵局交寄，對方才收得到。
 這節純示範，是回家自己架站時的知識，不影響今天學員的 FTP 安裝主線。
+-->
+
+---
+
+# 什麼是 SMTP？
+
+**SMTP** (Simple Mail Transfer Protocol)：寄信的**標準通訊協定**
+
+- 它是一套「怎麼把信交出去」的共同規矩，**不是某個服務或公司**
+- Resend、Gmail、SendGrid… 各家郵件服務都遵循它，所以能互通
+
+<div class="mt-5 max-w-xl mx-auto space-y-2 text-left">
+  <div class="rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-red-800">網站自己硬寄 → 像沒貼郵票、路邊亂投 → 被當垃圾信退回</div>
+  <div class="rounded-lg border border-green-300 bg-green-50 px-4 py-2 text-green-800">走 SMTP 交給郵件服務 → 像去郵局按規矩交寄 → 對方收得到</div>
+</div>
+
+<div class="mt-8 max-w-xl mx-auto border-l-4 border-[#0073aa] bg-blue-50 px-4 py-2 text-left">要做兩件事：找一個<b>郵件服務</b>當「郵局」，再用 <b>SMTP</b> 把網站接上去</div>
+
+<!--
+講者：SMTP 全名不用背，記住它是「交寄信件的標準流程」。
+這頁的重點就是分清楚「協定 vs 服務」：SMTP 是規矩，Resend 是真正執行的郵局。
+下一頁就示範怎麼拿到 SMTP 連線資訊、填進網站。
 -->
 
 ---
 
 # SMTP 設定步驟重點
 
-
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#64748b">示範</span>
 
 1. 選一個寄信服務：這裡改用 resend 作為示範
 2. 取得 SMTP 連線資訊：**主機、連接埠、帳號、密碼**
@@ -1040,6 +1078,8 @@ SMTP 是「正式去郵局交寄」，對方才收得到。
 ---
 
 # 實作：用 FTP 上傳 WordPress 核心
+
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 約 20 分鐘</span>
 
 **換你動手了！** 你會拿到三樣東西：
 
@@ -1062,7 +1102,7 @@ SMTP 是「正式去郵局交寄」，對方才收得到。
 
 # 步驟 1：下載 WordPress
 
-
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 3 分鐘</span>
 
 1. 前往 **tw.wordpress.org** (正體中文官網) 點「**取得 WordPress**」
 2. 下載最新版的壓縮檔 (`.zip`)
@@ -1080,11 +1120,11 @@ SMTP 是「正式去郵局交寄」，對方才收得到。
 
 # 步驟 2：安裝 FileZilla 並連線
 
-
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 5 分鐘</span>
 
 1. 前往 **filezilla-project.org**，下載 **FileZilla Client** (不是 Server)
 2. 安裝後開啟，用**拿到的連線資訊**填入上方欄位：
-   - **主機 (Host) **、**使用者 (Username) **、**密碼 (Password) **、**連接埠** (通常 21 或 22)
+   - **主機 (Host)**、**使用者 (Username)**、**密碼 (Password)**、**連接埠** (通常 21 或 22)
 3. 點「**快速連線**」，左半邊是你的電腦、右半邊是主機
 
 ![FileZilla 連線欄位與左右雙視窗](./assets/filezilla.png){class="block mx-auto mt-3 rounded-lg shadow w-[72%]"}
@@ -1100,11 +1140,11 @@ SMTP 是「正式去郵局交寄」，對方才收得到。
 
 # 步驟 3：用 FTP 上傳 WordPress
 
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 7 分鐘</span>
 
-
-1. 在 FileZilla **右半邊 (主機) **進入你子網域對應的資料夾
-2. 在**左半邊 (你的電腦) **打開解壓縮的 `wordpress` 資料夾
-3. 把 `wordpress` 資料夾**「裡面的所有檔案」**拖到右邊
+1. 在 FileZilla **右半邊** (主機) 進入你子網域對應的資料夾
+2. 在**左半邊** (你的電腦) 打開解壓縮的 `wordpress` 資料夾
+3. 把 `wordpress` 資料夾「**裡面的所有檔案**」拖到右邊
    (是裡面的內容，**不是整個 wordpress 資料夾**)
 4. 等待上傳完成 (檔案很多，需要幾分鐘)
 
@@ -1119,11 +1159,11 @@ SMTP 是「正式去郵局交寄」，對方才收得到。
 
 # 步驟 4：跑 WordPress 安裝精靈
 
-
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 5 分鐘</span>
 
 1. 瀏覽器打開**你的子網域**，會看到 WordPress 安裝畫面 → 選語言
 2. 填入**拿到的資料庫資訊**：DB 名稱、帳號、密碼、主機
-3. 設定**網站標題**，以及你的**管理員帳號與密碼 (務必記下來！) **
+3. 設定**網站標題**，以及你的**管理員帳號與密碼 (務必記下來！)**
 4. 按下安裝，完成後就能登入後台
 
 <!--
@@ -1250,7 +1290,7 @@ layout: section
 # 第 03 堂
 # 認識 WordPress
 
-登入後台、寫第一篇文章、建立頁面與選單 (這一堂大量動手實作)
+登入後台、寫第一篇文章、建立頁面與選單
 
 <!--
 這一堂操作難度低、成就感高，節奏可以加快。
@@ -1293,7 +1333,7 @@ layoutClass: gap-6
 
 1. 瀏覽器輸入 `https://你的子網域/wp-admin`
 2. 輸入**安裝時自己設定**的管理員帳號與密碼
-3. 登入成功會看到**控制台 (Dashboard) **
+3. 登入成功會看到**控制台 (Dashboard)**
 
 ::right::
 
@@ -1316,7 +1356,7 @@ layoutClass: gap-6
 
 1. 左側選單 **Settings → General**
 2. **Site Language** 確認是「繁體中文」→ 儲存後整個後台變中文
-3. **時區 (Timezone) ** 確認是 **台北 (UTC+8) **，排程發文時間才會正確
+3. **時區 (Timezone)** 確認是 **台北 (UTC+8)**，排程發文時間才會正確
 4. 順便確認**網站標題**與**網站說明**，改成你自己的
 
 
@@ -1369,7 +1409,7 @@ layoutClass: gap-6
 
 # 3-4 第一篇文章：區塊編輯器
 
-WordPress 的編輯器叫 **Gutenberg (區塊編輯器) **
+WordPress 的編輯器叫 **Gutenberg (區塊編輯器)**
 
 - **一切都是區塊**：一段文字是區塊、一張圖是區塊、一個清單也是區塊
 - 按 **「+」** 新增區塊，選你要的類型
@@ -1385,7 +1425,7 @@ WordPress 的編輯器叫 **Gutenberg (區塊編輯器) **
 
 # 動手寫第一篇文章
 
-<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 10 分鐘</span>
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 20 分鐘</span>
 
 
 
@@ -1407,7 +1447,7 @@ WordPress 的編輯器叫 **Gutenberg (區塊編輯器) **
 
 # 發佈！
 
-<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 2 分鐘</span>
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 5 分鐘</span>
 
 
 
@@ -1471,7 +1511,7 @@ WordPress 的編輯器叫 **Gutenberg (區塊編輯器) **
 
 # 建立「關於我」頁面
 
-<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 15 分鐘</span>
+<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#0073aa">實作 · 30 分鐘</span>
 
 
 
@@ -1493,8 +1533,8 @@ layoutClass: gap-8
 
 # 3-6 網站的頁首和頁尾
 
-- **頁首 (Header) **：網站最上方，網站標題、選單
-- **頁尾 (Footer) **：網站最下方，版權宣告、附加資訊
+- **頁首 (Header)**：網站最上方，網站標題、選單
+- **頁尾 (Footer)**：網站最下方，版權宣告、附加資訊
 - 新版 WordPress 用**網站編輯器** (外觀 → 編輯器) 直接視覺化編輯
 - 一樣是**區塊**的概念：頁首頁尾也是用區塊拼出來的
 
@@ -1536,7 +1576,7 @@ layoutClass: gap-8
 
 1. 進入**外觀 → 編輯器**，點選頁首區域
 2. 找到**導覽選單**區塊
-3. 把剛建立的**「關於我」頁面**加入選單
+3. 把剛建立的「**關於我**」頁面加入選單
 4. 儲存，回前台確認選單出現了
 
 
@@ -1555,11 +1595,14 @@ class: text-center
 
 # 第 03 堂小結
 
-**後台**是你的工作室，**區塊**是你的積木
-
-文章記錄時間流，頁面承載固定資訊
-
-你已經是能獨立發佈內容的網站主人了 
+<div class="max-w-2xl mx-auto mt-8 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden text-left">
+  <div class="px-5 py-2 text-sm font-bold text-white" style="background:#0073aa">本堂重點</div>
+  <div class="px-6 py-5 space-y-3 text-[#0d324d] leading-relaxed">
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span><b>後台</b>是你的工作室，<b>區塊</b>是你的積木</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span><b>文章</b>記錄時間流，<b>頁面</b>承載固定資訊</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>你已經是能<b>獨立發佈內容</b>的網站主人了</span></div>
+  </div>
+</div>
 
 <!--
 快速收束第 03 堂，接著進入第 04 堂：佈景主題。
@@ -1725,9 +1768,13 @@ class: text-center
 
 # 第 04 堂小結
 
-挑一個**安全的區塊主題**，一鍵換上專業外觀
-
-內容不變、外觀隨時換，你的網站，你作主 
+<div class="max-w-2xl mx-auto mt-8 rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden text-left">
+  <div class="px-5 py-2 text-sm font-bold text-white" style="background:#0073aa">本堂重點</div>
+  <div class="px-6 py-5 space-y-3 text-[#0d324d] leading-relaxed">
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>挑一個<b>安全的區塊主題</b>，一鍵換上專業外觀</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>內容不變、外觀隨時換，<b>你的網站，你作主</b></span></div>
+  </div>
+</div>
 
 <!--
 快速收束第 04 堂，接著進入 Day 1 收尾。
