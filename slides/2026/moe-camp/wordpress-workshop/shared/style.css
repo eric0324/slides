@@ -50,6 +50,13 @@
   background: #f0f8fc;
   border-radius: 0 8px 8px 0;
   padding: 0.5em 1em;
+  margin-top: 1.25em;
+}
+
+/* 表格後方緊接的區塊，補足間距 */
+.slidev-layout table + blockquote,
+.slidev-layout table + p {
+  margin-top: 1.5em;
 }
 
 /* 連結 */
