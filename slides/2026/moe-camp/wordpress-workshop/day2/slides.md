@@ -2,7 +2,7 @@
 theme: default
 title: WordPress 工作坊 Day 2
 info: |
-  教育部公民營計劃・WordPress 工作坊 Day 2
+  教學 4.0：用 AI 打造自動化數位職人官網・WordPress 工作坊 Day 2
 class: text-center
 transition: slide-left
 mdc: true
@@ -10,9 +10,9 @@ colorSchema: light
 routerMode: hash
 
 talk:
-  description: 教育部公民營計劃 WordPress 工作坊 Day 2：外掛生態系，從流量分析、表單、SEO、圖片、資安、備份到 WooCommerce 電商與 Sensei 線上課程。
-  tags: [WordPress, workshop, 教育部]
-  event: 教育部公民營計劃
+  description: 教學 4.0：用 AI 打造自動化數位職人官網・WordPress 工作坊 Day 2：外掛生態系，從流量分析、表單、SEO、圖片、資安、備份到 WooCommerce 電商與 Sensei 線上課程。
+  tags: [WordPress, workshop, AI, 教育部]
+  event: 教學 4.0：用 AI 打造自動化數位職人官網
   date: 2026-08-04
   unlisted: true
 ---
@@ -21,7 +21,7 @@ talk:
 
 ## Day 2
 
-教育部公民營計劃
+教學 4.0：用 AI 打造自動化數位職人官網
 
 講師：Eric Wu
 
@@ -64,12 +64,11 @@ talk:
 | 10:00 – 12:00 | 第 05 堂 (2)：圖片、資安、備份 |
 | 12:00 – 13:00 | 午餐 |
 | 13:00 – 15:00 | 第 05 堂 (3)：更美的網站設計 Elementor |
-| 15:00 – 17:50 | 第 05 堂 (4)：WooCommerce 電商、Sensei 線上課程、Royal MCP (AI 連接示範) |
+| 15:00 – 17:50 | 第 05 堂 (4)：WooCommerce 電商、Sensei 線上課程 |
 
 <!--
 時間為佔位，依現場實際調整。
 強調下午的電商與線上課程是今天份量最重的部分，午餐後請準時回來。
-Royal MCP 排在最後、純示範，時間不夠可以壓縮，不影響學員的 Checkpoint。
 -->
 
 ---
@@ -1017,9 +1016,9 @@ layout: section
 
 # 第 05 堂 (4)
 
-## 電商・線上課程・AI 連接
+## 電商・線上課程
 
-開一間自己的線上商店，最後看 AI 怎麼直接動手幫你經營網站
+開一間自己的線上商店
 
 ---
 layout: section
@@ -1403,127 +1402,6 @@ layout: section
 -->
 
 ---
-layout: section
----
-
-# Royal MCP
-
-讓 AI 直接幫你在 WordPress 寫文章
-
----
-
-# 為什麼需要 Royal MCP？
-
-- 今天裝的外掛，都是「你在後台操作外掛的介面」
-- **Royal MCP 反過來**：讓 AI 直接讀寫你的 WordPress 內容
-- 不用再「跟 AI 聊完 → 複製 → 貼到 WordPress」，直接請 AI 動手做
-- 背後的技術叫 **MCP (Model Context Protocol)**：一套**開放標準**，讓 AI 助理跟外部工具溝通
-- Claude、ChatGPT 都支援連接 Royal MCP
-
-<!--
-一句話定位：Royal MCP 是「把 WordPress 接上 AI」的橋樑外掛，MCP 是開放協定，不要讓學員誤以為只能用 Claude。
-MCP 概念不用展開講解，學員只要知道「這是讓 AI 跟外部系統對話的標準，各家工具都能接」即可。
--->
-
----
-
-# 使用門檻：免費版都不行，但門檻不一樣
-
-|  | 免費版 | 個人付費版 | 更高階方案 |
-|---|---|---|---|
-| **Claude** | 沒有連接器功能 | **Pro 就能讀 + 寫** (含建立文章) | — |
-| **ChatGPT** | 沒有連接器功能 | Plus／Pro **只能讀**，不能建立 | 要到 **Business 以上**才能寫 |
-
-- Royal MCP **外掛本身完全免費**，付費的是 AI 工具的方案
-- 想要「請 AI 直接寫文章」：**Claude 只要 Pro 就做得到，ChatGPT 要到 Business 等級**
-- 今天用 **Claude 帳號示範**完整的「AI 直接寫文章」效果
-
-<!--
-這是今天唯一一個「純示範、不要求學員動手」的外掛小節，先講清楚原因，避免學員卡在第一步就挫折。
-數字以官網最新規定為準：Claude Pro／Max／Team／Enterprise 有連接器且可寫入；ChatGPT 免費版沒有開發者模式，Plus/Pro 只能讀，Business/Enterprise/Edu 才能寫。
--->
-
----
-
-# 安裝 Royal MCP
-
-<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#64748b">示範</span>
-
-這一步跟你用哪個 AI 工具無關，WordPress 端只需要設定一次：
-
-1. 「外掛 → 安裝外掛」搜尋 **Royal MCP**
-2. 安裝 → 啟用
-3. 「Royal MCP → Settings → General Settings」，打開 **「Enable Royal MCP Integration」** (預設是關的)
-
-<!--
-第 4 步最容易漏掉：不重存永久連結，Royal MCP 的連線網址會 404，是最常見的卡關點。
--->
-
----
-
-# 連接 AI 工具：以 Claude 為例
-
-<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#64748b">示範</span>
-
-今天示範 Claude，之後每家 AI 工具的邏輯都一樣：**去它的「連接器」設定，貼上同一個網址**
-
-1. 打開 claude.ai → 左下角大頭貼 → **Settings → Connectors**
-2. 點「**Add custom connector**」，取個名字 (例：`我的網站 MCP`)
-3. URL 貼上：`https://你的網域/wp-json/royal-mcp/v1/mcp`
-4. **Client ID / Secret 留空**，直接點「**Connect**」
-5. 跳出授權畫面 → 點「**Authorize**」，看到連接器顯示已連接
-
-<div class="mt-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm">
-用 <b>ChatGPT</b> 的人：對應位置是 Settings → Apps → Advanced settings → 開啟 <b>Developer Mode</b> → Apps 面板點 <b>Add more</b>，一樣貼上面同一個網址、選 OAuth 授權。
-</div>
-
-<!--
-留白 Client ID/Secret 是重點，Royal MCP 支援自動動態註冊，不用手動申請金鑰，Claude、ChatGPT 皆同。
-ChatGPT 端的「Developer Mode」會跳出風險警告，屬正常現象，照走即可；免費版 ChatGPT 完全看不到這個選單。
-若 OAuth 連不上，官方文件有 API Key 備援方案，今天不深入，需要的老師課後查官方文件。
--->
-
----
-
-# 讓 AI 直接建立一篇草稿
-
-<span class="inline-block text-xs font-bold text-white rounded px-2 py-0.5" style="background:#64748b">示範</span>
-
-1. 開新對話 → 點輸入框旁的「**+**」→ 確認剛剛的連接器是**開啟**的
-2. 直接跟 AI 說：
-
-```text
-幫我在網站建立一篇草稿，標題是「我的第一篇 AI 直接發佈的文章」，
-內容約 300 字，主題是 XXX。建好後告訴我。
-```
-
-3. AI 會**實際呼叫你的 WordPress**，建立草稿
-4. 回後台「**文章**」列表，就能看到剛剛建立的那篇
-
-<div class="mt-3 p-3 bg-green-50 dark:bg-green-900 rounded-lg text-sm">
-也可以問：「我最近 5 篇文章分別是什麼分類？」
-</div>
-
-<!--
-這是今天的重頭戲，讓學員看到「AI 不只是聊天，是真的能動手做事」。
-可以現場示範第 2 點的提示詞，讓全班看著文章即時出現在後台列表，很有戲劇效果。
-若台下有 ChatGPT Plus/Pro 的學員，這步驟他們會卡住 (只能讀不能寫)，提前打預防針，別讓他們以為自己設定錯了。
--->
-
----
-
-# 安全提醒：AI 能碰到你的網站，要更小心
-
-- AI 能做的事，等於**連接帳號在 WordPress 裡的權限**：用管理員帳號連，AI 就有管理員等級的存取
-- 建議只讓 AI 建立「**草稿**」，人工看過確認沒問題再發佈，不要設定自動發佈
-- 呼應今天的資安心法：**不用的連接器就移除**，在 AI 工具的連接器／Apps 設定裡可以隨時中斷連線
-
-<!--
-把今天上午 Wordfence 的資安心態拉過來用：權限給多少、風險就有多少。
-中斷連線的方式：Claude 在 Settings → Connectors；ChatGPT 在 Settings → Apps，都找到這個連接器 → Remove/Disconnect。
--->
-
----
 
 # 今日外掛安裝清單回顧 (1/2)
 
@@ -1554,11 +1432,10 @@ ChatGPT 端的「Developer Mode」會跳出風險警告，屬正常現象，照�
 | Elementor | 頁面設計 | 讓網頁更有設計感 |
 | WooCommerce | 電商 | 線上販售商品 |
 | Sensei LMS | 線上課程 | 教材線上化 |
-| Royal MCP | 連接 AI | 讓 AI (Claude／ChatGPT) 直接讀寫網站內容 (示範) |
 
 <!--
-下午的三個是進階應用：從美編到電商、線上課程，最後 Royal MCP 是示範性質，提醒學員這項不強制動手。
-串一句：上午打底、下午變現，9 個外掛親手裝好，最後再看一段「AI 直接動手」的示範開開眼界。
+下午的三個是進階應用：從美編到電商、線上課程。
+串一句：上午打底、下午變現，9 個外掛＝9 種超能力。
 -->
 
 ---
@@ -1627,7 +1504,6 @@ ChatGPT 端的「Developer Mode」會跳出風險警告，屬正常現象，照�
 - 流量、表單、SEO：讓網站被看見、能互動
 - 圖片、資安、備份：讓網站快、安全、毀不掉
 - Elementor、WooCommerce、Sensei：設計、開店、開課
-- Royal MCP：讓 AI 直接動手幫你寫網站內容
 
 <div class="mt-6 text-center text-xl">
 你的網站今天從「能用」升級成「<b>好用又強大</b>」
