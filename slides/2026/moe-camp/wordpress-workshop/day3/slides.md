@@ -2,7 +2,7 @@
 theme: default
 title: WordPress 工作坊 Day 3
 info: |
-  教育部公民營計劃・WordPress 工作坊 Day 3。
+  教學 4.0：用 AI 打造自動化數位職人官網・WordPress 工作坊 Day 3。
 class: text-center
 transition: slide-left
 mdc: true
@@ -10,9 +10,9 @@ colorSchema: light
 routerMode: hash
 
 talk:
-  description: 教育部公民營計劃 WordPress 工作坊 Day 3：持續經營、網站獲利，以及 AI 延伸應用，提示詞、內容經營、生圖素材、AI 客製化 WordPress 外掛實作。
-  tags: [WordPress, workshop, 教育部, AI]
-  event: 教育部公民營計劃
+  description: 教學 4.0：用 AI 打造自動化數位職人官網・WordPress 工作坊 Day 3：持續經營、網站獲利，以及 AI 延伸應用，提示詞、內容經營、生圖素材、AI 客製化 WordPress 外掛實作。
+  tags: [WordPress, workshop, AI, 教育部]
+  event: 教學 4.0：用 AI 打造自動化數位職人官網
   date: 2026-08-05
   unlisted: true
 ---
@@ -21,7 +21,7 @@ talk:
 
 ## Day 3
 
-教育部公民營計劃
+教學 4.0：用 AI 打造自動化數位職人官網
 
 講師：Eric Wu
 
@@ -58,7 +58,7 @@ talk:
 
 | 時間 | 內容 |
 |------|------|
-| 08:00 – 10:00 | AI 協助內容經營 |
+| 08:00 – 10:00 | AI 協助內容經營、Royal MCP (AI 連接示範) |
 | 10:00 – 12:00 | AI 客製化 WordPress 外掛 |
 | 12:00 – 13:00 | 午餐 |
 | 13:00 – 15:00 | 內容經營心法、視覺素材、SEO、NFC 導流卡片 |
@@ -478,6 +478,127 @@ layout: section
 <!--
 複習 Day 1 的媒體庫操作，多數學員應該還記得。
 替代文字小技巧：可以請 AI 順便寫，「為這張圖寫一句 alt text」。
+-->
+
+---
+layout: section
+---
+
+# Royal MCP
+
+## 讓 AI 直接動手，跳過複製貼上
+
+---
+
+# 剛剛的流程，其實可以更快
+
+回想一下你剛剛做的事：
+
+```mermaid
+graph LR
+A[跟 AI 聊] --> B[複製草稿] --> C[貼到 WordPress] --> D[上傳圖片]
+```
+
+- **Royal MCP**：一個 WordPress 外掛，讓 AI 直接讀寫你的網站內容
+- 裝好、連上之後，直接請 AI「幫我建立一篇草稿」，文章**直接出現在後台**，不用複製貼上
+- 背後是 **MCP (Model Context Protocol)**：一套開放標準
+
+<!--
+一句話定位：Royal MCP 是「把 WordPress 接上 AI」的橋樑外掛，呼應剛剛學員親手做過一輪的手動流程。
+MCP 概念不用展開講解，學員只要知道「這是讓 AI 跟外部系統對話的標準，各家工具都能接」即可。
+-->
+
+---
+
+# 使用門檻：免費版都不行，但門檻不一樣
+
+|  | 免費版 | 個人付費版 | 更高階方案 |
+|---|---|---|---|
+| **Claude** | 沒有連接器功能 | **Pro 就能讀 + 寫** (含建立文章) | — |
+| **ChatGPT** | 沒有連接器功能 | Plus／Pro **只能讀**，不能建立 | 要到 **Business 以上**才能寫 |
+
+- Royal MCP **外掛本身完全免費**，付費的是 AI 工具的方案
+- 早上「主流工具概覽」提到三個工具都有免費版可以直接用，但**這件事免費版都不行**
+- 想要「請 AI 直接寫文章」：**Claude 只要 Pro 就做得到，ChatGPT 要到 Business 等級**
+- 今天用**講師帳號示範**完整的「AI 直接寫文章」效果
+
+<!--
+這是今天唯一一個「純示範、不要求學員動手」的小節，先講清楚原因，避免學員卡在第一步就挫折。
+數字以官網最新規定為準：Claude Pro／Max／Team／Enterprise 有連接器且可寫入；ChatGPT 免費版沒有開發者模式，Plus/Pro 只能讀，Business/Enterprise/Edu 才能寫。
+-->
+
+---
+
+# 安裝 Royal MCP (示範)
+
+這一步跟你用哪個 AI 工具無關，WordPress 端只需要設定一次：
+
+1. 「外掛 → 安裝外掛」搜尋 **Royal MCP**
+2. 安裝 → 啟用
+3. 「Royal MCP → Settings → General Settings」，打開 **「Enable Royal MCP Integration」** (預設是關的)
+<!--
+第 4 步最容易漏掉：不重存永久連結，Royal MCP 的連線網址會 404，是最常見的卡關點。
+-->
+
+---
+
+# 連接 AI 工具：以 Claude 為例 (示範)
+
+今天示範 Claude，之後每家 AI 工具的邏輯都一樣：**去它的「連接器」設定，貼上同一個網址**
+
+1. 打開 claude.ai → 左下角大頭貼 → **Settings → Connectors**
+2. 點「**Add custom connector**」，取個名字 (例：`我的網站 MCP`)
+3. URL 貼上：`https://你的網域/wp-json/royal-mcp/v1/mcp`
+4. **Client ID / Secret 留空**，直接點「**Connect**」
+5. 跳出授權畫面 → 點「**Authorize**」，看到連接器顯示已連接
+
+<div class="mt-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm">
+用 <b>ChatGPT</b> 的人：對應位置是 Settings → Apps → Advanced settings → 開啟 <b>Developer Mode</b> → Apps 面板點 <b>Add more</b>，一樣貼上面同一個網址、選 OAuth 授權。
+</div>
+
+<!--
+留白 Client ID/Secret 是重點，Royal MCP 支援自動動態註冊，不用手動申請金鑰，Claude、ChatGPT 皆同。
+ChatGPT 端的「Developer Mode」會跳出風險警告，屬正常現象，照走即可；免費版 ChatGPT 完全看不到這個選單。
+若 OAuth 連不上，官方文件有 API Key 備援方案，今天不深入，需要的老師課後查官方文件。
+-->
+
+---
+
+# 讓 AI 直接建立一篇草稿 (示範)
+
+1. 開新對話 → 點輸入框旁的「**+**」→ 確認剛剛的連接器是**開啟**的
+2. 直接跟 AI 說：
+
+```text
+幫我在網站建立一篇草稿，標題是「我的第一篇 AI 直接發佈的文章」，
+內容約 300 字，主題是 XXX。建好後告訴我。
+```
+
+3. AI 會**實際呼叫你的 WordPress**，建立草稿
+4. 回後台「**文章**」列表，就能看到剛剛建立的那篇 — 跟你剛剛手動複製貼上的那篇，效果一樣，但**少了中間的複製貼上**
+
+<div class="mt-3 p-3 bg-green-50 dark:bg-green-900 rounded-lg text-sm">
+也可以問：「我最近 5 篇文章分別是什麼分類？」— 不管 Claude 或 ChatGPT 都能直接讀你的網站資料回答，這部分沒有方案限制。
+</div>
+
+<!--
+這是這個小節的重頭戲，讓學員看到「AI 不只是聊天，是真的能動手做事」，跟剛剛的手動流程對比會很有感。
+可以現場示範第 2 點的提示詞，讓全班看著文章即時出現在後台列表，很有戲劇效果。
+若台下有 ChatGPT Plus/Pro 的學員，這步驟他們會卡住 (只能讀不能寫)，提前打預防針，別讓他們以為自己設定錯了。
+-->
+
+---
+
+# 安全提醒：AI 能碰到你的網站，要更小心
+
+- AI 能做的事，等於**連接帳號在 WordPress 裡的權限**：用管理員帳號連，AI 就有管理員等級的存取
+- 建議只讓 AI 建立「**草稿**」，人工看過確認沒問題再發佈，不要設定自動發佈
+- 呼應早上「AI 的限制」提過的隱私紅線：**不用的連接器就移除**，在 AI 工具的連接器／Apps 設定裡可以隨時中斷連線
+
+<!--
+把早上「AI 的限制 (二)：知識截止日與隱私」的心態拉過來用：權限給多少、風險就有多少。
+中斷連線的方式：Claude 在 Settings → Connectors；ChatGPT 在 Settings → Apps，都找到這個連接器 → Remove/Disconnect。
+這頁也替下一節「自製外掛安全注意事項」預埋伏筆，兩節用同一套判斷原則。
 -->
 
 ---
@@ -1235,21 +1356,29 @@ layout: section
 
 ---
 
-# 你不是一個人：WordPress 社群
+# 你不是一個人：回家後有地方問
 
-WordPress 是全球最大的開源社群之一，台灣也很活躍
+<div class="mt-4 flex items-center gap-6 w-fit mx-auto rounded-xl border-2 border-[#5865F2] bg-[#5865F2]/5 px-7 py-5">
+  <img src="./assets/discord-qr.png" alt="WordPress 學習 Discord QR Code" class="w-32 h-32 rounded-lg bg-white p-2 shadow" />
+  <div class="text-left">
+    <div class="text-xl font-bold text-[#5865F2]">WordPress 學習 Discord</div>
+    <div class="text-sm text-gray-600 mt-1.5">課程結束不是終點。遇到問題來這裡問。</div>
+    <div class="text-xs text-gray-400 mt-2">還沒加入的，現在掃一下</div>
+  </div>
+</div>
+
+<div class="mt-6 max-w-2xl mx-auto text-left text-sm text-gray-600">
+
+想再往外走走，台灣的 WordPress 社群也很活躍、很歡迎新手：
 
 - **WordPress 台灣社群**：Facebook 社團、各地小聚
-- **WordCamp**：社群年會，講座 ＋ 工作坊 ＋ 認識同好
-  - 在地的 WordCamp Taiwan、亞洲規模最大的 WordCamp Asia
-- 多數活動免費、開放，也很歡迎新手
+- **WordCamp**：社群年會，講座 ＋ 工作坊 ＋ 認識同好 (WordCamp Taiwan／Asia)
 
-<div class="mt-5 w-fit mx-auto p-3 bg-blue-50 dark:bg-blue-900 rounded-lg text-sm">
-有餘力的話，找一場附近的小聚走走，遇到問題有人一起解，經營路上更不孤單。 (自由參加)
 </div>
 
 <!--
-這頁定位成「鼓勵」而非必修，簡短帶過即可。
+主角是課程的學習 Discord：請還沒加入 Day 1 QR 的學員現在補掃，強調「回家後不是一個人」。
+下半部的 FB 社團／WordCamp 定位成「有餘力再參加」的延伸鼓勵，簡短帶過。
 講師可現身說法：自己參與、籌辦 WordCamp Taiwan 與 WordCamp Asia 的經驗，並補上近期小聚或社團連結。
 -->
 
@@ -1357,8 +1486,8 @@ layout: section
 # 延伸學習資源
 
 - **WordPress 官方文件**：learn.wordpress.org (含中文資源)
-- **台灣 WordPress 社群**：(佔位：講師補充社群名稱與連結)
-- **WordCamp / 小聚**：(佔位：講師補充近期活動資訊)
+- **台灣 WordPress 社群**
+- **WordCamp / 小聚**
 
 <!--
 講師課前準備：填入社群連結與建立學員群組 QR code。
