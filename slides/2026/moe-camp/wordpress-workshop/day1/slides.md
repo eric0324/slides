@@ -2,7 +2,7 @@
 theme: default
 title: WordPress 工作坊 Day 1
 info: |
-  教育部公民營計劃・WordPress 工作坊 Day 1。從零開始：認識 WordPress、開啟伺服器、購買網域、設定 SSL，建立你的第一個網站。
+  教學 4.0：用 AI 打造自動化數位職人官網・WordPress 工作坊 Day 1。從零開始：認識 WordPress、開啟伺服器、購買網域、設定 SSL，建立你的第一個網站。
 class: text-center
 transition: slide-left
 mdc: true
@@ -10,9 +10,9 @@ colorSchema: light
 routerMode: hash
 
 talk:
-  description: 教育部公民營計劃 WordPress 工作坊 Day 1：認識 WordPress、開啟伺服器、購買與設定網域、SSL/CDN，並完成第一篇文章與頁面。
-  tags: [WordPress, workshop, 教育部]
-  event: 教育部公民營計劃
+  description: 教學 4.0：用 AI 打造自動化數位職人官網・WordPress 工作坊 Day 1：認識 WordPress、開啟伺服器、購買與設定網域、SSL/CDN，並完成第一篇文章與頁面。
+  tags: [WordPress, workshop, AI, 教育部]
+  event: 教學 4.0：用 AI 打造自動化數位職人官網
   date: 2026-08-03
   unlisted: true
 ---
@@ -21,7 +21,7 @@ talk:
 
 ## Day 1
 
-教育部公民營計劃
+教學 4.0：用 AI 打造自動化數位職人官網
 
 講師：Eric Wu
 
