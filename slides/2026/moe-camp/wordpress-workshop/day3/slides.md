@@ -101,7 +101,7 @@ layout: section
 
 - 你可以把它想成一個**讀過超大量文字的接龍高手**
 - 它做的事：根據前面的文字，**預測下一個字最可能是什麼**
-- 「老師早安，今天要考＿＿」→ 它會接「試」
+- 「老師早安，今天要＿＿」→ 它會接「考試」
 - 把這個能力放大億萬倍，就能寫文章、翻譯、寫程式
 - 這類模型叫 **LLM (大型語言模型)**，名字記不住沒關係
 
@@ -125,7 +125,6 @@ layout: section
 
 - 三者都有**免費版**可以直接用，額度與功能**以各官網為準**
 - 今天的技巧**三個工具都通用**，學觀念，不是學特定產品
-- 建議：先用一個用熟，再比較其他家
 
 <!--
 請學員現在就打開其中一個工具並登入，確認能用 (教室網路先測)。
@@ -249,7 +248,7 @@ A[1 你提供大綱] --> B[2 AI 產生草稿] --> C[3 人工修改定稿]
 - **步驟 2**：把大綱餵給 AI，要求依照格式產出草稿
 - **步驟 3**：**人工修改**，加入自己的經驗、案例、語氣
 
-> 鐵則：AI 寫的是「草稿」，**沒改過不要按發佈**
+> AI 寫的是「草稿」，**沒改過不要按發佈**
 
 <!--
 強調步驟 3 不可省略：AI 草稿是通用知識，老師的真實案例與判斷才是文章的靈魂 (也是 SEO 上區隔 AI 罐頭文的關鍵)。
@@ -303,28 +302,6 @@ Google 並不懲罰 AI 輔助內容，但偏好「有真實經驗與價值」的
 
 ---
 
-# 用 AI 下標題：一次產 10 個再挑
-
-```text
-以下是我的文章內容：【貼上文章】
-
-請給我 10 個標題選項，要求：
-- 包含關鍵字「學習歷程」
-- 其中 3 個用數字型 (例如「5 個方法」)
-- 其中 3 個用疑問型 (例如「你也犯了嗎？」)
-- 標題長度 15–25 字
-```
-
-
-<!--
-示範產 10 個標題，請學員舉手投票選最想點的，通常數字型和疑問型得票高。
-提醒：標題要誠實，內容撐不起的承諾不要寫 (標題黨會賠掉信任)。
--->
-
----
-
-
-
 # 用 AI 產社群貼文
 
 同一篇文章，改寫成不同平台版本：
@@ -340,7 +317,7 @@ Google 並不懲罰 AI 輔助內容，但偏好「有真實經驗與價值」的
 ```
 
 - 寫一篇文章 = 部落格 ＋ FB ＋ IG 三份內容
-- 社群貼文負責**導流**，文章負責**深度** (與 SEO)
+- 社群貼文負責**導流**，文章負責**深度**
 
 <!--
 「一魚多吃」是內容經營者的省力核心：一次深度產出，多平台分發。
@@ -418,7 +395,7 @@ layout: section
 # 生圖常見地雷與修正
 
 - 「幫我畫一張好看的圖」→ 跟「幫我寫一篇文章」一樣空泛
-- 圖中的**中文字**常變成亂碼 → 文字後製加 (用 Canva 或小畫家)
+- 圖中的**中文字**常變成亂碼 → 文字後製加 (用 Canva)
 - 人物的**手指、文字細節**容易出錯 → 檢查後重生成
 - 不滿意就追問：「同樣構圖，換成水彩風」「把背景改成圖書館」
 - 風格一致性：同網站的首圖用**同一組風格描述**，視覺更專業
@@ -593,7 +570,6 @@ ChatGPT 端的「Developer Mode」會跳出風險警告，屬正常現象，照�
 
 - AI 能做的事，等於**連接帳號在 WordPress 裡的權限**：用管理員帳號連，AI 就有管理員等級的存取
 - 建議只讓 AI 建立「**草稿**」，人工看過確認沒問題再發佈，不要設定自動發佈
-- 呼應早上「AI 的限制」提過的隱私紅線：**不用的連接器就移除**，在 AI 工具的連接器／Apps 設定裡可以隨時中斷連線
 
 <!--
 把早上「AI 的限制 (二)：知識截止日與隱私」的心態拉過來用：權限給多少、風險就有多少。
@@ -688,7 +664,7 @@ shortcode 概念學員在 Day 2 用表單外掛時看過 (表單也是用 shortc
 - `Plugin Name:` → 外掛在後台顯示的名字 看得懂
 - `// 開頭的中文` → 註解，給人看的說明 看得懂
 - `return '...'` → 回傳引號裡的文字 猜得到
-- `add_shortcode( 'hello', ... )` → 註冊 `[hello]` 暗號 猜得到
+- `add_shortcode( 'hello', ... )` → 註冊 `[hello]`
 
 > 你不需要會「寫」，只需要會「**讀個大概＋驗收結果**」
 > 看不懂的地方？**請 AI 逐行解釋給你聽**
@@ -978,22 +954,6 @@ F -->|是| G[完成]
 
 ---
 
-# 常見錯誤對照表
-
-| 症狀 | 可能原因 | 解法 |
-|------|---------|------|
-| 上傳後說「無效的外掛標頭」 | 標頭註解格式跑掉 | 確認 `Plugin Name:` 那段完整貼上 |
-| 啟用時顯示致命錯誤 | 程式碼複製不完整 | 重新完整複製 (含 `<?php`)，或貼錯誤給 AI |
-| 頁面直接顯示 `[draw...]` 文字 | 外掛沒啟用／shortcode 名稱打錯 | 檢查啟用狀態與拼字 |
-| 安裝說「目的地資料夾已存在」 | 重複安裝 | 先刪除舊版外掛再上傳 |
-| 存檔變成 `.php.txt` | 記事本存檔類型沒選對 | 存檔類型選「所有檔案」 |
-
-<!--
-這張表就是巡場時的急救手冊，學員的問題九成在這五種裡。
-最常見的是最後一種 (.php.txt)，外觀完全看不出來，請學員開啟「顯示副檔名」確認。
--->
-
----
 
 
 # 做一個你自己的外掛
@@ -1020,7 +980,7 @@ layout: section
 
 # 內容經營與獲利
 
-## 心法、視覺素材、SEO、獲利
+## 心法、視覺素材、獲利
 
 ---
 
@@ -1201,10 +1161,22 @@ layout: section
 
 - **空白 NFC 卡**：我們今天用 NTAG213，容量足夠存網址
 - **一支支援 NFC 的手機**：多數中階以上手機都有
-- **App：NFC Tools** (Android 與 iPhone 都有同一款，免費)
+- **App：NFC Tools** (Android 與 iPhone 都有同一款，免費)，掃下面的 QR Code 直接下載：
+
+<div class="mt-4 flex items-center justify-center gap-32">
+  <figure class="m-0 text-center">
+    <img src="./assets/nfc-tools-ios-qr.png" class="w-32 h-32 mx-auto rounded-lg bg-white p-1.5 shadow" />
+    <figcaption class="text-sm text-gray-500 mt-1.5">iPhone (App Store)</figcaption>
+  </figure>
+  <figure class="m-0 text-center">
+    <img src="./assets/nfc-tools-android-qr.png" class="w-32 h-32 mx-auto rounded-lg bg-white p-1.5 shadow" />
+    <figcaption class="text-sm text-gray-500 mt-1.5">Android (Google Play)</figcaption>
+  </figure>
+</div>
 
 <!--
 統一用 NFC Tools 的好處：雙平台步驟幾乎一樣，不用兩套教。
+直接放 QR Code 下載，避免學員在商店搜尋時點錯到同名的山寨 App，掃碼直達正確頁面也比較快。
 Android 常見卡關：NFC 沒開。請學員先到「設定 > 連線／NFC」確認開啟。
 iPhone 讀取幾乎零設定，靠近卡片頂端 (鏡頭附近) 會自動跳通知，這點很加分。
 講師課前務必用兩種手機各測一次，確認教室主流機型都能寫、能讀。
@@ -1283,7 +1255,7 @@ layout: section
 # 模式一：廣告 (Google AdSense)
 
 - 原理：在網站版面放 Google 的廣告，**有人看／點就有收入**
-- 申請流程：AdSense 官網申請 → Google 審核網站 → 通過後貼上代碼
+- 申請流程：AdSense 官網申請 → Google 審核網站 → 通過後貼上程式碼
 - 審核重點：原創內容、足夠的文章量、隱私權政策頁面
 - 收益現實面：**流量要大才有感**，適合當長期目標
 - 收益門檻與分潤比例：以 Google 官網最新規定為準
@@ -1344,7 +1316,6 @@ layout: section
     <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>網站荒廢的解藥：<b>固定節奏</b> ＋ 解決讀者問題的內容</span></div>
     <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>寫法：標題層級、短段落、條列、白話</span></div>
     <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>視覺：每篇都有圖，版權用 <b>Openverse</b> 安全解</span></div>
-    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>SEO：長尾關鍵字 ＋ 內部連結，持續累積</span></div>
     <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>獲利四模式：廣告／聯盟／販售／業配，<b>內容先行</b></span></div>
   </div>
 </div>
@@ -1372,7 +1343,7 @@ layout: section
 想再往外走走，台灣的 WordPress 社群也很活躍、很歡迎新手：
 
 - **WordPress 台灣社群**：Facebook 社團、各地小聚
-- **WordCamp**：社群年會，講座 ＋ 工作坊 ＋ 認識同好 (WordCamp Taiwan／Asia)
+- **WordCamp**：社群年會，講座 ＋ 工作坊 ＋ 認識同好
 
 </div>
 
@@ -1390,20 +1361,6 @@ layout: section
 
 ---
 
-# 分享一下
-
-<div class="max-w-xl mx-auto mt-6 space-y-2 text-left">
-  <div class="rounded-lg border border-gray-200 bg-white px-4 py-2.5 shadow-sm">你的<b>網站首頁</b>長什麼樣？</div>
-  <div class="rounded-lg border border-gray-200 bg-white px-4 py-2.5 shadow-sm">最得意的<b>一篇文章</b>或<b>一個頁面</b></div>
-  <div class="rounded-lg border border-gray-200 bg-white px-4 py-2.5 shadow-sm">你親手「描述」出來的那個<b>外掛</b></div>
-  <div class="rounded-lg border border-gray-200 bg-white px-4 py-2.5 shadow-sm">一句話：回去後<b>最想先做的下一步</b></div>
-</div>
-
-<!--
-留 15–20 分鐘，邀請學員輪流投影自己的網站，氣氛輕鬆，鼓勵互相觀摩交流。
--->
-
----
 
 # 三天，你完成了這些事
 
@@ -1483,20 +1440,6 @@ layout: section
 
 ---
 
-# 延伸學習資源
-
-- **WordPress 官方文件**：learn.wordpress.org (含中文資源)
-- **台灣 WordPress 社群**
-- **WordCamp / 小聚**
-
-<!--
-講師課前準備：填入社群連結與建立學員群組 QR code。
-同梯群組是持續經營最有效的支持系統，互相督促發文。
--->
-
----
-
-
 # Q&A
 
 三天的任何問題，都可以現在問
@@ -1512,6 +1455,21 @@ layout: section
 -->
 
 ---
+
+# 分享一下
+
+<div class="max-w-xl mx-auto mt-6 space-y-2 text-left">
+  <div class="rounded-lg border border-gray-200 bg-white px-4 py-2.5 shadow-sm">你的<b>網站首頁</b>長什麼樣？</div>
+  <div class="rounded-lg border border-gray-200 bg-white px-4 py-2.5 shadow-sm">最得意的<b>一篇文章</b>或<b>一個頁面</b></div>
+  <div class="rounded-lg border border-gray-200 bg-white px-4 py-2.5 shadow-sm">你親手「描述」出來的那個<b>外掛</b></div>
+</div>
+
+<!--
+留 15–20 分鐘，邀請學員輪流投影自己的網站，氣氛輕鬆，鼓勵互相觀摩交流。
+-->
+
+
+---
 layout: center
 class: text-center
 ---
@@ -1524,7 +1482,7 @@ class: text-center
 
 三天前它還不存在，三個月後，讓它還活著，而且更好
 
-**每週一篇文，我們網路上見**
+**每週一篇文，我們 WordPress 世界見**
 
 <!--
 結業儀式：可以全班一起截圖自己的網站首頁，或合照時投影大家的網站。
