@@ -202,8 +202,8 @@ layout: center
 
 <v-click>
 
-<div class="mt-6 flex items-center gap-5 w-fit mx-auto rounded-xl border-2 border-[#5865F2] bg-[#5865F2]/5 px-6 py-4">
-  <img src="./assets/discord-qr.png" alt="WordPress 學習 Discord QR Code" class="w-28 h-28 rounded-lg bg-white p-1.5 shadow" />
+<div class="mt-4 flex items-center gap-6 w-fit mx-auto rounded-xl border-2 border-[#5865F2] bg-[#5865F2]/5 px-7 py-5">
+  <img src="./assets/discord-qr.png" alt="WordPress 學習 Discord QR Code" class="w-32 h-32 rounded-lg bg-white p-2 shadow" />
   <div class="text-left">
     <div class="text-lg font-bold text-[#5865F2]">加入 WordPress 學習 Discord</div>
     <div class="text-sm text-gray-600 mt-1">現在掃這個加入，這三天有問題<b>隨時丟</b></div>
