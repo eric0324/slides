@@ -1330,6 +1330,7 @@ layout: section
     <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>網站荒廢的解藥：<b>固定節奏</b> ＋ 解決讀者問題的內容</span></div>
     <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>寫法：標題層級、短段落、條列、白話</span></div>
     <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>視覺：每篇都有圖，版權用 <b>Openverse</b> 安全解</span></div>
+    <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>線下導流：<b>NFC 卡片</b>一碰打開網站</span></div>
     <div class="flex gap-3"><span class="text-[#0073aa] font-bold">▪</span><span>獲利四模式：廣告／聯盟／販售／業配，<b>內容先行</b></span></div>
   </div>
 </div>
@@ -1479,6 +1480,22 @@ layout: section
 留 15–20 分鐘，邀請學員輪流投影自己的網站，氣氛輕鬆，鼓勵互相觀摩交流。
 -->
 
+---
+
+# 課後問卷
+
+<div class="mt-4 flex items-center gap-6 w-fit mx-auto rounded-xl border-2 border-[#0073aa] bg-[#0073aa]/5 px-7 py-5">
+  <img src="./assets/survey-qr.png" alt="課後問卷 QR Code" class="w-32 h-32 rounded-lg bg-white p-2 shadow" />
+  <div class="text-left">
+    <div class="text-xl font-bold text-[#0073aa]">課後問卷</div>
+    <div class="text-sm text-gray-600 mt-1.5">花 2 分鐘，給我一點回饋</div>
+  </div>
+</div>
+
+<!--
+安排在「分享一下」之後、正式結業之前：大家還在座位上，填答率最高。
+可以口頭說明「哪裡最卡關」那一題特別重要，會直接回饋到未來梯次的教材調整。
+-->
 
 ---
 layout: center
