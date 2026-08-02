@@ -1344,6 +1344,7 @@ layout: section
   <div class="text-left">
     <div class="text-xl font-bold text-[#5865F2]">WordPress 學習 Discord</div>
     <div class="text-sm text-gray-600 mt-1.5">課程結束不是終點。遇到問題來這裡問。</div>
+    <div class="text-sm font-mono text-[#5865F2] mt-1.5">go.ericwu.asia/discord</div>
     <div class="text-xs text-gray-400 mt-2">還沒加入的，現在掃一下</div>
   </div>
 </div>

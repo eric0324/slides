@@ -207,6 +207,7 @@ layout: center
   <div class="text-left">
     <div class="text-lg font-bold text-[#5865F2]">加入 WordPress 學習 Discord</div>
     <div class="text-sm text-gray-600 mt-1">現在掃這個加入，這三天有問題<b>隨時丟</b></div>
+    <div class="text-sm font-mono text-[#5865F2] mt-1.5">go.ericwu.asia/discord</div>
   </div>
 </div>
 
